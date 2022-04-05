@@ -1,5 +1,26 @@
+const cacheName="PUT_NAME_OF_CACHE_HERE_V1";
+/*Just take into account that the "files" below are request-url's and not filenames perse. So for your root of your website yous should include "./" 
+and if you use my site (or another plain HTML-site) also "index.html". If you use a server-side language and have friendly url's that could be something like 
+"news/this-is-a-newsarticle/".*/
+const appFiles=[
+	"the-manifest-file.json",
+	"js/some-main-javascript-file.js",
+	"css/some-stylesheet-file.css",
+	"images/some-image.extension", 
+	"./",
+  "index.html"
+];
+
+
 self.addEventListener("install",(installing)=>{
     console.log("Service Worker: I am being installed, hello world!");
+    //Put important offline files in cache on installation of the service worker
+  CHANGEWITHYOURINSTALLEVENTVARIABLE.waitUntil(
+  caches.open(CHANGEWITHYOURCACHENAMEVARIABLE).then((cache)=>{
+    console.log("Service Worker: Caching important offline files");
+    return cache.addAll(CHANGEWITHYOURFILESARRAYVARIABLE);
+  })
+);
   });
   
   self.addEventListener("activate",(activating)=>{	
