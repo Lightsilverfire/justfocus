@@ -3,6 +3,7 @@ const cacheName="PUT_NAME_OF_CACHE_HERE_V1";
 and if you use my site (or another plain HTML-site) also "index.html". If you use a server-side language and have friendly url's that could be something like 
 "news/this-is-a-newsarticle/".*/
 const appFiles=[
+	"manifest.json",
 	"js/scripts.js",
 	"css/stylesheet.css",
 	"icon-512x512.png", 
