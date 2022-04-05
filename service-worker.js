@@ -15,10 +15,10 @@ const appFiles=[
 self.addEventListener("install",(installing)=>{
     console.log("Service Worker: I am being installed, hello world!");
     //Put important offline files in cache on installation of the service worker
-  CHANGEWITHYOURINSTALLEVENTVARIABLE.waitUntil(
-  caches.open(CHANGEWITHYOURCACHENAMEVARIABLE).then((cache)=>{
+  installing.waitUntil(
+  caches.open(cacheName).then((cache)=>{
     console.log("Service Worker: Caching important offline files");
-    return cache.addAll(CHANGEWITHYOURFILESARRAYVARIABLE);
+    return cache.addAll(appFiles);
   })
 );
   });
