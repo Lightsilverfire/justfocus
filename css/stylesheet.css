@@ -31,7 +31,7 @@ body {
     height: 100%;
     position: absolute;
     top: 0px;
-    background-image: url(/images/test_v2.gif);
+    background-image: url(/images/idle.gif);
     background-repeat: no-repeat;
     background-size: 100%;
 }
@@ -39,6 +39,21 @@ body {
 #testgif {
     width: 100%;
 }
+
+#buttons {
+    width: 200px;
+    margin: 2px 2.5%;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+}
+
+#buttonsdiv {
+    margin-top: 2%;
+}
+
+
+/*Scaling webpage */
 
 @media only screen and (max-width: 1800px) and (min-width: 1000px) {
     #mainmenu {
