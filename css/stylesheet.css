@@ -1,88 +1,65 @@
-/* Small resets */
-
-html,
-body,
-form {
-    padding: 0px;
-    margin: 0px;
-    height: 100%;
-    width: 100%;
-}
-
-
-/* Main elements */
-
-body {
-    background-size: cover;
-    font-family: var(--fonts-normal-text);
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--colors-text-light);
-    overflow: hidden;
-    width: 100%;
-    background-color: black;
-}
-
-
-/* Other elements */
-
-#mainmenu {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0px;
-    background-image: url(/images/idle.gif);
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
-
-#testgif {
-    width: 100%;
-}
-
-#buttons {
-    width: 150px;
-    margin: 2px 4.5%;
-    color: white;
-    background-color: black;
-    border-radius: 5px;
-}
-
-#buttonsdiv {
-    margin-top: 2%;
-    width: 100%;
-}
-
-
-/*Scaling webpage */
-
-@media only screen and (max-width: 1800px) and (min-width: 1000px) {
-    #mainmenu {
-        background-size: 20%;
-        margin: 5% 40%;
-    }
-}
-
-@media only screen and (max-width: 999px) and (min-width: 500px) {
-    #mainmenu {
-        background-size: 30%;
-        margin: 5% 35%;
-    }
-    #buttons {
-        width: 120px;
-        margin: 2px 4.5%;
-    }
-    #buttonsdiv {
-        margin-top: 10px;
-    }
-}
-
-@media only screen and (max-width: 499px) and (min-width: 100px) {
-    #buttons {
-        width: 200px;
-        margin: 2px 20%;
-    }
-    #buttonsdiv {
-        margin-top: 60px;
-    }
-}
+        /* Small resets */
+        
+        html,
+        body,
+        form {
+            padding: 0px;
+            margin: 0px;
+            height: 100%;
+            width: 100%;
+        }
+        /* Main elements */
+        
+        body {
+            background-size: cover;
+            font-family: var(--fonts-normal-text);
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--colors-text-light);
+            overflow: hidden;
+            width: 100%;
+            background-color: black;
+        }
+        /* Other elements */
+        
+        #mainmenu {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            background-image: url(/images/idle.gif);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        
+        #buttons {
+            width: auto;
+            margin: 2px 4.5%;
+            color: white;
+            background-color: black;
+            border-radius: 5px;
+            display: block;
+        }
+        
+        #buttonsdiv {
+            width: auto;
+        }
+        /*Scaling webpage */
+        
+        @media only screen and (max-width: 1800px) and (min-width: 1000px) {
+            #mainmenu {
+                background-size: 20%;
+                margin: 5% 40%;
+            }
+        }
+        
+        @media only screen and (max-width: 999px) and (min-width: 500px) {
+            #mainmenu {
+                background-size: 30%;
+                margin: 5% 35%;
+            }
+            #a.buttons {
+                display: block;
+                margin: 0.4em auto;
+            }
+        }
