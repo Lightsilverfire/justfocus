@@ -33,8 +33,7 @@
         }
         
         #buttons {
-            width: auto;
-            margin: 2px 4.5%;
+            width: 20%;
             color: white;
             background-color: black;
             border-radius: 5px;
@@ -51,6 +50,9 @@
                 background-size: 20%;
                 margin: 5% 40%;
             }
+            #buttons {
+                width: 20%;
+            }
         }
         
         @media only screen and (max-width: 999px) and (min-width: 500px) {
@@ -61,5 +63,18 @@
             #a.buttons {
                 display: block;
                 margin: 0.4em auto;
+            }
+            #buttons {
+                width: 30%;
+            }
+        }
+        
+        @media only screen and (max-width: 499px) {
+            #a.buttons {
+                display: block;
+                margin: 0.4em auto;
+            }
+            #buttons {
+                width: 100%;
             }
         }
