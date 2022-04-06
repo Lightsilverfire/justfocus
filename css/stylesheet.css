@@ -43,6 +43,13 @@ body {
 @media only screen and (max-width: 1800px) and (min-width: 1000px) {
     #mainmenu {
         background-size: 20%;
-        margin: 0 50%;
+        margin: 5% 40%;
+    }
+}
+
+@media only screen and (max-width: 999px) and (min-width: 500px) {
+    #mainmenu {
+        background-size: 30%;
+        margin: 5% 35%;
     }
 }
