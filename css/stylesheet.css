@@ -41,8 +41,8 @@ body {
 }
 
 #buttons {
-    width: 200px;
-    margin: 2px 2.5%;
+    width: 150px;
+    margin: 2px 4.5%;
     color: white;
     background-color: black;
     border-radius: 5px;
@@ -50,6 +50,7 @@ body {
 
 #buttonsdiv {
     margin-top: 2%;
+    width: 100%;
 }
 
 
@@ -66,5 +67,22 @@ body {
     #mainmenu {
         background-size: 30%;
         margin: 5% 35%;
+    }
+    #buttons {
+        width: 120px;
+        margin: 2px 4.5%;
+    }
+    #buttonsdiv {
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 499px) and (min-width: 100px) {
+    #buttons {
+        width: 200px;
+        margin: 2px 20%;
+    }
+    #buttonsdiv {
+        margin-top: 60px;
     }
 }
