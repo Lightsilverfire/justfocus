@@ -46,7 +46,7 @@
         }
         /*Scaling webpage */
         
-        @media only screen and (max-width: 1800px) and (min-width: 1000px) {
+        @media only screen and (min-width: 1000px) {
             #mainmenu {
                 background-size: 20%;
                 margin: 5% 40%;
