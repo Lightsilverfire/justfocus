@@ -139,6 +139,9 @@
             .footerbar {
                 height: 20px;
             }
+            .popup {
+                height: 30px;
+            }
         }
         
         @media only screen and (max-width: 499px) {
