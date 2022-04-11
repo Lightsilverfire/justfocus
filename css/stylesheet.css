@@ -97,6 +97,35 @@
             height: 125px;
             background-color: black;
         }
+        
+        #quityesno {
+            background-color: black;
+            width: 80%;
+            height: 60px;
+            text-align: center;
+            margin: 10%;
+            border-radius: 5px;
+            color: white;
+            font-size: 12px;
+        }
+        
+        .yesno {
+            width: 30%;
+            height: 20px;
+            background-color: white;
+            border: solid 2px white;
+            border-radius: 5px;
+            font-size: 7px;
+            margin: 10px;
+        }
+        
+        .quitHide {
+            opacity: 0;
+        }
+        
+        .quitShow {
+            opacity: 1;
+        }
         /*Scaling webpage */
         
         @media only screen and (min-width: 1000px) {
