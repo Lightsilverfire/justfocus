@@ -158,4 +158,7 @@
             #popupmenu {
                 width: 80%;
             }
+            .popup {
+                height: 30px;
+            }
         }
