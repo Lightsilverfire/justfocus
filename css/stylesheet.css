@@ -32,7 +32,7 @@
             background-size: 100%;
         }
         
-        #buttons {
+        .buttons {
             width: 20%;
             color: white;
             background-color: black;
@@ -43,6 +43,52 @@
         #buttonsdiv {
             width: auto;
         }
+        
+        #menu {
+            position: relative;
+            width: 15%;
+            left: 0;
+            top: 0;
+        }
+        
+        .hamburgerHide {
+            opacity: 0;
+        }
+        
+        .hamburgerShow {
+            opacity: 1;
+        }
+        
+        #popupmenu {
+            width: 15%;
+            height: 50%;
+            position: absolute;
+            top: 0px;
+            background-color: white;
+            border: solid 4px black;
+            text-align: center;
+            margin: 30px 30px 0 30px;
+        }
+        
+        .popHide {
+            opacity: 0;
+        }
+        
+        .popShow {
+            opacity: 1;
+        }
+        
+        .popup {
+            width: 60%;
+            margin: 8px;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+        }
+        
+        .buttonmenupopup {
+            margin-top: 20%;
+        }
         /*Scaling webpage */
         
         @media only screen and (min-width: 1000px) {
@@ -50,8 +96,11 @@
                 background-size: 20%;
                 margin: 5% 40%;
             }
-            #buttons {
+            .buttons {
                 width: 20%;
+            }
+            #menu {
+                width: 2%;
             }
         }
         
@@ -64,8 +113,11 @@
                 display: block;
                 margin: 0.4em auto;
             }
-            #buttons {
+            .buttons {
                 width: 30%;
+            }
+            #menu {
+                width: 4%;
             }
         }
         
@@ -74,7 +126,10 @@
                 display: block;
                 margin: 0.4em auto;
             }
-            #buttons {
+            .buttons {
                 width: 100%;
+            }
+            #menu {
+                width: 10%;
             }
         }
