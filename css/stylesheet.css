@@ -1,14 +1,4 @@
-@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
-    html {
-      transform: rotate(-90deg);
-      transform-origin: left top;
-      width: 100vh;
-      overflow-x: hidden;
-      position: absolute;
-      top: 100%;
-      left: 0;
-    }
-  }
+            
 
 /* Small resets */
 
@@ -72,11 +62,11 @@ canvas {
 
 
 .hamburgerHide {
-    opacity: 0;
+    display: none;
 }
 
 .hamburgerShow {
-    opacity: 1;
+    display: show;
 }
 
 #popupmenu {
@@ -91,11 +81,11 @@ canvas {
 }
 
 .popHide {
-    opacity: 0;
+    display: none;
 }
 
 .popShow {
-    opacity: 1;
+    display: show;
 }
 
 .popup {
@@ -140,11 +130,11 @@ canvas {
 }
 
 .quitHide {
-    opacity: 0;
+    display: none;
 }
 
 .quitShow {
-    opacity: 1;
+    display: show;
 }
 /*Scaling webpage */
 

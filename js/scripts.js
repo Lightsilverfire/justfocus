@@ -12,6 +12,19 @@ if ("serviceWorker" in navigator) {
     console.log("Browser: I don't support Service Workers :(");
 }
 
+var $ = document.getElementById.bind(document);
+
+var orientKey = 'orientation';
+if ('mozOrientation' in screen) {
+  orientKey = 'mozOrientation';
+} else if ('msOrientation' in screen) {
+  orientKey = 'msOrientation';
+}
+
+var target = $('logTarget');
+var device = $('device');
+var orientationTypeLabel = $('orientationType');
+
 //Functie activate gif
 document.getElementById("startButton").addEventListener("click", playgif);
 document.getElementById("continueButton").addEventListener("click", playgif);
