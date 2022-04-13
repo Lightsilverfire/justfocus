@@ -21,8 +21,15 @@ body {
     overflow: hidden;
     width: 100%;
     background-color: black;
+    user-select: none;
+
 }
 /* Other elements */
+
+.noSelect{
+    user-select: none;
+}
+
 
 #mainmenu {
     width: 100%;
