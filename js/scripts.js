@@ -51,7 +51,6 @@ if (quitmenu == 0) {
 function playgif() {
     menuswitch.classList.remove("hamburgerHide")
     menuswitch.classList.add("hamburgerShow")
-    document.getElementById('mainmenu').style.backgroundImage = "url(/images/start.gif)";
     document.getElementById('buttonsdiv').style.display = "none"
 }
 

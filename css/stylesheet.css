@@ -27,13 +27,13 @@
                 height: 100%;
                 position: absolute;
                 top: 0px;
-                background-image: url(/images/idle.gif);
+                background-color: white;
                 background-repeat: no-repeat;
                 background-size: 100%;
             }
             
             .buttons {
-                width: 20%;
+                width: 200%;
                 color: white;
                 background-color: black;
                 border-radius: 5px;
@@ -130,11 +130,11 @@
             
             @media only screen and (min-width: 1000px) {
                 #mainmenu {
-                    background-size: 20%;
+                    width: 20%;
                     margin: 5% 40%;
                 }
                 .buttons {
-                    width: 20%;
+                    width: 100%;
                 }
                 #menu {
                     width: 2%;
@@ -143,8 +143,8 @@
             
             @media only screen and (max-width: 999px) and (min-width: 500px) {
                 #mainmenu {
-                    background-size: 30%;
-                    margin: 5% 35%;
+                    width: 50%;
+                    margin: 5% 25%;
                 }
                 #a.buttons {
                     display: block;
