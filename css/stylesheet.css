@@ -28,11 +28,36 @@
                 height: 100%;
                 position: absolute;
                 top: 0px;
-                background-image: url("/images/backgroundwalk.png");
+                background-color: white;
+            }
+            
+            #logo {
+                width: 80%;
+                margin: 20% 0 0 0;
+                text-align: center;
+            }
+            
+            #logodiv {
+                width: 100%;
+                text-align: center;
+            }
+            
+            #hideshit {
+                display: none;
+            }
+            
+            #background {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0px;
+                background-image: var(--background, url("/images/backgroundwalk.png"));
+                z-index: -1;
                 background-size: 500%;
                 background-position-y: -180px;
-                background-position-x: 0px;
+                background-position-x: var(--positionX, 0px);
                 background-repeat: no-repeat;
+                display: none;
             }
             
             canvas {
