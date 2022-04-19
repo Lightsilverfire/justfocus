@@ -27,6 +27,8 @@ let popmenu = document.getElementById("popupmenu");
 let quitbutton = document.getElementById("quityesno");
 let quitbutton2 = document.getElementById("popupquit");
 let character = document.getElementById("canvas");
+let invisiblelay = document.getElementById("invisiblelayer");
+let infotext = document.getElementById("textfooter");
 
 //Startup values and classes
 let opacitymenu = 0;
@@ -54,6 +56,7 @@ function playgif() {
     menuswitch.classList.remove("hamburgerHide")
     menuswitch.classList.add("hamburgerShow")
     document.getElementById('buttonsdiv').style.display = "none"
+    infotext.style.display = "block"
 }
 
 function showcharacter() {
@@ -67,6 +70,8 @@ function hamburger() {
     menuswitch.classList.remove("hamburgerShow")
     quitbutton.classList.add("quitHide")
     quitbutton.classList.remove("quitShow")
+    invisiblelay.style.display = "block";
+    infotext.style.display = "none"
 }
 
 function vervolg() {
@@ -74,6 +79,9 @@ function vervolg() {
     popmenu.classList.add("popHide")
     menuswitch.classList.remove("hamburgerHide")
     menuswitch.classList.add("hamburgerShow")
+    invisiblelay.style.display = "none";
+    infotext.style.display = "block"
+
 }
 
 function quit() {
@@ -84,6 +92,7 @@ function quit() {
 function backtostart() {
     window.location.href = 'https://justfocus.netlify.app/';
     canvas.style.display = "none"
+    invisiblelay.style.display = "none";
 }
 
 function backtomenu() {
@@ -124,8 +133,8 @@ let currentLoopIndex = 0;
 let frameCount = 0;
 
 //touch event, touchstart is je vinger op het scherm is, touchend is als je vinger niet meer op het scherm is
-document.getElementById("canvas").addEventListener("touchstart", function() { touch = true });
-document.getElementById("canvas").addEventListener("touchend", function() { touch = false });
+document.getElementById("footerbar").addEventListener("touchstart", function() { touch = true });
+document.getElementById("footerbar").addEventListener("touchend", function() { touch = false });
 
 
 //sprite laten lopen als het scherm aangeraakt wordt

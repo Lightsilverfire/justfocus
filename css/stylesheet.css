@@ -28,13 +28,14 @@
                 height: 100%;
                 position: absolute;
                 top: 0px;
-                background-color: green;
+                background-image: url("/images/backgroundwalk.png");
+                background-size: 500%;
+                background-position-y: -180px;
+                background-position-x: 0px;
                 background-repeat: no-repeat;
-                background-size: 100%;
             }
             
             canvas {
-                border: 1px solid black;
                 position: absolute;
                 z-index: 1;
                 margin: 40% 0 0 20%;
@@ -80,6 +81,16 @@
                 z-index: 9;
             }
             
+            #invisiblelayer {
+                width: 100%;
+                height: 15%;
+                display: none;
+                background-color: red;
+                position: fixed;
+                bottom: 0;
+                opacity: 0;
+            }
+            
             .popHide {
                 display: none;
             }
@@ -100,12 +111,21 @@
                 margin-top: 20%;
             }
             
-            .footerbar {
+            #footerbar {
                 position: absolute;
                 bottom: 0;
                 width: 100%;
                 height: 125px;
                 background-color: black;
+                text-align: center;
+            }
+            
+            #textfooter {
+                margin: 10%;
+                color: white;
+                text-align: center;
+                font-size: 15px;
+                display: none;
             }
             
             #quityesno {
@@ -153,7 +173,6 @@
                     width: 75%;
                 }
                 canvas {
-                    border: 1px solid black;
                     position: absolute;
                     z-index: 1;
                     margin: 10% 0 0 40%;
@@ -184,14 +203,13 @@
                 .popup {
                     font-size: 10px;
                 }
-                .footerbar {
+                #footerbar {
                     height: 20px;
                 }
                 .popup {
                     height: 30px;
                 }
                 canvas {
-                    border: 1px solid black;
                     position: absolute;
                     z-index: 1;
                     margin: 25% 0 0 25%;
@@ -204,8 +222,9 @@
                     margin: 0.4em auto;
                 }
                 .buttons {
-                    width: 100%;
+                    width: 80%;
                     margin-top: 10px;
+                    margin-left: 10%;
                     height: 30px;
                 }
                 #menu {
@@ -218,7 +237,6 @@
                     height: 30px;
                 }
                 canvas {
-                    border: 1px solid black;
                     position: absolute;
                     z-index: 1;
                     margin: 100% 0 0 20%;
