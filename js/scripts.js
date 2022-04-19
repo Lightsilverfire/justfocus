@@ -88,7 +88,7 @@ function backtomenu() {
 
 //sprite bepalen en laden
 let img = new Image();
-img.src = 'images/lopen2.png';
+img.src = 'images/lopen.png';
 img.onload = function() {
     init();
 };
@@ -111,7 +111,7 @@ function drawFrame(frameX, frameY, canvasX, canvasY) {
 }
 
 //we hebben 26 frames voor het lopen
-const cycleLoop = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
+const cycleLoop = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
 
 let currentLoopIndex = 0;
 let frameCount = 0;

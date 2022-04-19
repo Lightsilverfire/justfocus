@@ -26,11 +26,6 @@ body {
 }
 /* Other elements */
 
-.noSelect{
-    user-select: none;
-}
-
-
 #mainmenu {
     width: 100%;
     height: 100%;
