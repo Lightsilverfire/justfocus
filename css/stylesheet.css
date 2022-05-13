@@ -54,7 +54,7 @@
                 background-image: var(--background, url("/images/backgroundwalk.png"));
                 z-index: -1;
                 background-size: 300%;
-                background-position-y: -210px;
+                background-position-y: -180px;
                 background-position-x: var(--positionX, 0px);
                 background-repeat: no-repeat;
                 display: none;
