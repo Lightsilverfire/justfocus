@@ -33,6 +33,8 @@ let backgroundpositionX = document.getElementById("background");
 let background = document.getElementById("background");
 let mainmenu = document.getElementById("mainmenu");
 let logo = document.getElementById("logodiv");
+let menuschool = document.getElementById("fieldmenuschool");
+
 
 //Startup values and classes
 let opacitymenu = 0;
@@ -170,7 +172,7 @@ function step() {
             console.log(x)
         }
         // als de x van de afbeelding op -1500 komt, dan gaat hij uit de if statement doordat hij magBewegen op 2 zet
-        if (x <= -1500) {
+        if (x <= -530) {
             magBewegen = 2;
         }
         //frameCount is hoe snel de animatie gaat, hoe lager het getal, hoe sneller de code door de spritesheet gaat

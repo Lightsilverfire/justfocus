@@ -53,8 +53,8 @@
                 top: 0px;
                 background-image: var(--background, url("/images/backgroundwalk.png"));
                 z-index: -1;
-                background-size: 500%;
-                background-position-y: -320px;
+                background-size: 300%;
+                background-position-y: -210px;
                 background-position-x: var(--positionX, 0px);
                 background-repeat: no-repeat;
                 display: none;
@@ -192,6 +192,35 @@
             
             .quitShow {
                 display: show;
+            }
+            
+            #fieldmenuschool {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                display: none;
+            }
+            
+            #menugotoschool {
+                width: 50%;
+                height: 10%;
+                position: absolute;
+                top: 0px;
+                background-color: white;
+                border: solid 4px black;
+                text-align: center;
+                margin: 300px 30px 0 30px;
+                z-index: 9;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 20px;
+            }
+            
+            #enterschool {
+                width: 100%;
             }
             /*Scaling webpage */
             
