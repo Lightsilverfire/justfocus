@@ -172,7 +172,7 @@ function step() {
             console.log(x)
         }
         // als de x van de afbeelding op -1500 komt, dan gaat hij uit de if statement doordat hij magBewegen op 2 zet
-        if (x <= -550) {
+        if (x <= -580) {
             magBewegen = 2;
             menuschool.style.display = "block"
         }
