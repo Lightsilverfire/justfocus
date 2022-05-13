@@ -70,6 +70,7 @@
             #schoolimage {
                 margin: -10% 0 0 0;
                 user-select: none;
+                z-index: 2;
             }
             
             #schoolimg {
@@ -153,6 +154,7 @@
                 height: 125px;
                 background-color: black;
                 text-align: center;
+                z-index: 1;
             }
             
             #textfooter {
