@@ -174,6 +174,7 @@ function step() {
         // als de x van de afbeelding op -1500 komt, dan gaat hij uit de if statement doordat hij magBewegen op 2 zet
         if (x <= -550) {
             magBewegen = 2;
+            menuschool.style.display = "block"
         }
         //frameCount is hoe snel de animatie gaat, hoe lager het getal, hoe sneller de code door de spritesheet gaat
         frameCount++;
