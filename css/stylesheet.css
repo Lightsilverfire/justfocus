@@ -67,6 +67,14 @@
                 display: none;
             }
             
+            #schoolimage {
+                margin: -10% 0 0 0;
+            }
+            
+            #schoolimg {
+                width: 200%;
+            }
+            
             .buttons {
                 width: 200%;
                 color: white;
