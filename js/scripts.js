@@ -21,6 +21,23 @@ document.getElementById("popContinue").addEventListener("click", vervolg);
 document.getElementById("popupquit").addEventListener("click", quit);
 document.getElementById("quityes").addEventListener("click", backtostart);
 document.getElementById("quitno").addEventListener("click", backtomenu);
+document.getElementById("Enterschool").addEventListener("click", scene);
+//touch event, touchstart is je vinger op het scherm is, touchend is als je vinger niet meer op het scherm is
+document.getElementById("footerbar").addEventListener("touchstart", function() { touch = true });
+document.getElementById("footerbar").addEventListener("touchend", function() { touch = false });
+
+//scale is voor op welke scale de spritesheet getoont moet worden
+//width is de breedte van één afbeelding in de spritesheet
+//height is de hoogte van de spirtesheet
+const scale = 1;
+const width = 255;
+const height = 255;
+const scaledWidth = scale * width;
+const scaledHeight = scale * height;
+
+//we hebben 25 frames voor het lopen
+const cycleLoop = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
+
 
 let menuswitch = document.getElementById("hamburgermenu");
 let popmenu = document.getElementById("popupmenu");
@@ -29,11 +46,23 @@ let quitbutton2 = document.getElementById("popupquit");
 let character = document.getElementById("canvas");
 let invisiblelay = document.getElementById("invisiblelayer");
 let infotext = document.getElementById("textfooter");
-let backgroundpositionX = document.getElementById("background");
 let background = document.getElementById("background");
 let mainmenu = document.getElementById("mainmenu");
 let logo = document.getElementById("logodiv");
 let menuschool = document.getElementById("fieldmenuschool");
+let loading = document.getElementById("loadingscreen");
+let backgroundImg = document.getElementById("backgroundImg");
+
+//sprite op canvas zetten met goede frame
+let canvas = document.querySelector('canvas');
+let ctx = canvas.getContext('2d');
+let touch;
+let currentLoopIndex = 0;
+let frameCount = 0;
+let x = 0;
+let magBewegen = 1;
+let achtergrondCheck = 1;
+let img = new Image();
 
 
 //Startup values and classes
@@ -57,7 +86,24 @@ if (quitmenu == 0) {
     quitbutton.classList.remove("quitShow")
     quitbutton.classList.add("quitHide")
 }
+//Laadscherm laten verdwijnen
+function scene() {
+    background.style.display = "none";
+    menuschool.style.display = "none";
+    loading.style.display = "block";
+    achtergrondCheck = 2;
+    x = 0;
+    backgroundImg.src = "./images/classroom.png";
 
+
+    let laadscherm = setInterval(function() {
+        document.getElementById("loadingscreen").remove(),
+            clearInterval(laadscherm),
+            console.log('checke')
+        background.style.display = "block";
+
+    }, 1000);
+}
 
 //startknop
 function start() {
@@ -65,9 +111,11 @@ function start() {
     menuswitch.classList.add("hamburgerShow")
     document.getElementById('buttonsdiv').style.display = "none"
     infotext.style.display = "block"
-    background.style.display = "block"
+    backgroundImg.style.display = "block"
     mainmenu.style.background = "none"
     logo.style.display = "none"
+    backgroundImg.src = "./images/backgroundwalk.png";
+
 }
 
 // laat karakter zien na drukken startknop
@@ -119,46 +167,17 @@ function backtomenu() {
 }
 
 //hieronder zit de scripts voor het geanimeerd lopen met de sprite
-
 //sprite bepalen en laden
-let img = new Image();
 img.src = 'images/lopen.png';
 img.onload = function() {
     init();
 };
-
-//sprite op canvas zetten met goede frame
-let canvas = document.querySelector('canvas');
-let ctx = canvas.getContext('2d');
-let touch;
-
-//scale is voor op welke scale de spritesheet getoont moet worden
-//width is de breedte van één afbeelding in de spritesheet
-//height is de hoogte van de spirtesheet
-const scale = 1;
-const width = 255;
-const height = 255;
-const scaledWidth = scale * width;
-const scaledHeight = scale * height;
 
 function drawFrame(frameX, frameY, canvasX, canvasY) {
     ctx.drawImage(img,
         frameX * width, frameY * height, width, height,
         canvasX, canvasY, scaledWidth, scaledHeight);
 }
-
-//we hebben 25 frames voor het lopen
-const cycleLoop = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
-
-let currentLoopIndex = 0;
-let frameCount = 0;
-let x = 0;
-let magBewegen = 1;
-
-//touch event, touchstart is je vinger op het scherm is, touchend is als je vinger niet meer op het scherm is
-document.getElementById("footerbar").addEventListener("touchstart", function() { touch = true });
-document.getElementById("footerbar").addEventListener("touchend", function() { touch = false });
-
 
 //sprite laten lopen als het scherm aangeraakt wordt
 function step() {
@@ -168,13 +187,16 @@ function step() {
         if (magBewegen == 1) {
             x--;
             //px is een string die voor de css duidelijk maakt dat het om pixels gaat
-            backgroundpositionX.style.backgroundPositionX = x + "px";
+            backgroundImg.style.left = x + "px";
             console.log(x)
         }
         // als de x van de afbeelding op -1500 komt, dan gaat hij uit de if statement doordat hij magBewegen op 2 zet
-        if (x <= -580) {
+        if (x <= -580 && achtergrondCheck == 1) {
             magBewegen = 2;
             menuschool.style.display = "block"
+        }
+        if (x <= -580 && achtergrondCheck == 2) {
+            magBewegen = 2;
         }
         //frameCount is hoe snel de animatie gaat, hoe lager het getal, hoe sneller de code door de spritesheet gaat
         frameCount++;
@@ -200,8 +222,6 @@ function step() {
 
 }
 
-
-//vanaf blijven
 function init() {
     window.requestAnimationFrame(step);
 }

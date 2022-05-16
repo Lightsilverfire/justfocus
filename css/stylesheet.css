@@ -49,15 +49,47 @@
             #background {
                 width: 100%;
                 height: 100%;
-                position: absolute;
+                z-index: -10;
+                overflow: hidden;
+            }
+            
+            #backgroundImg {
+                height: 100%;
+                position: fixed;
                 top: 0px;
-                background-image: var(--background, url("/images/backgroundwalk.png"));
-                z-index: -1;
+                z-index: -10;
                 background-size: 300%;
                 background-position-y: -220px;
-                background-position-x: var(--positionX, 0px);
+                background-position-x: 0px;
                 background-repeat: no-repeat;
+                background-size: cover;
+                display: block;
+                overflow: hidden;
+            }
+            
+            #loadingscreen {
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(-45deg, #b80000, #e47404, #c42707, #e82214);
+                background-size: 400% 400%;
+                animation: gradient 6s ease infinite;
+                height: 100vh;
                 display: none;
+                z-index: 2;
+            }
+            
+            @keyframes gradient {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
             }
             
             canvas {
@@ -136,6 +168,14 @@
             }
             
             .popup {
+                width: 60%;
+                margin: 8px;
+                background-color: black;
+                color: white;
+                border-radius: 5px;
+            }
+            
+            #Enterschool {
                 width: 60%;
                 margin: 8px;
                 background-color: black;
