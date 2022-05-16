@@ -51,6 +51,7 @@
                 height: 100%;
                 z-index: -10;
                 background-size: 300%;
+                user-select: none;
             }
             
             #backgroundImg {
