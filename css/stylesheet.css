@@ -47,20 +47,20 @@
             }
             
             #background {
+                user-select: none;
                 width: 100%;
                 height: 100%;
                 z-index: -10;
                 background-size: 300%;
-                user-select: none;
             }
             
             #backgroundImg {
+                user-select: none;
                 width: 250%;
                 position: fixed;
                 top: -100px;
                 z-index: -10;
                 display: block;
-                user-select: none;
             }
             
             #loadingscreen {
