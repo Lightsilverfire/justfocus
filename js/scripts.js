@@ -94,6 +94,8 @@ function scene() {
     achtergrondCheck = 2;
     x = 0;
     backgroundImg.src = "./images/classroom.png";
+    backgroundImg.className = "scene2";
+    document.getElementById("backgroundImg").setAttribute("id", "scene2");
 
 
     let laadscherm = setInterval(function() {

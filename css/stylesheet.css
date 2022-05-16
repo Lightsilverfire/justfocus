@@ -63,6 +63,15 @@
                 display: block;
             }
             
+            #scene2 {
+                user-select: none;
+                width: 300%;
+                position: fixed;
+                top: -50px;
+                z-index: -10;
+                display: block;
+            }
+            
             #loadingscreen {
                 position: absolute;
                 top: 0;
