@@ -97,6 +97,8 @@ function scene() {
     backgroundImg.src = "./images/classroom.png";
     backgroundImg.className = "scene2";
     document.getElementById("backgroundImg").setAttribute("id", "scene2");
+    backgroundImg.style.left = "0px";
+
 
 
     let laadscherm = setInterval(function() {
@@ -198,7 +200,7 @@ function step() {
             magBewegen = 2;
             menuschool.style.display = "block"
         }
-        if (x <= -500 && achtergrondCheck == 2) {
+        if (x <= -750 && achtergrondCheck == 2) {
             magBewegen = 2;
         }
         //frameCount is hoe snel de animatie gaat, hoe lager het getal, hoe sneller de code door de spritesheet gaat
