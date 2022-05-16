@@ -93,6 +93,7 @@ function scene() {
     loading.style.display = "block";
     achtergrondCheck = 2;
     x = 0;
+    magBewegen = 1;
     backgroundImg.src = "./images/classroom.png";
     backgroundImg.className = "scene2";
     document.getElementById("backgroundImg").setAttribute("id", "scene2");
@@ -193,13 +194,13 @@ function step() {
             console.log(x)
         }
         // als de x van de afbeelding op -1500 komt, dan gaat hij uit de if statement doordat hij magBewegen op 2 zet
-        if (x <= -500 && achtergrondCheck == 1) {
+        if (x <= -450 && achtergrondCheck == 1) {
             magBewegen = 2;
             menuschool.style.display = "block"
         }
-        //if (x <= -500 && achtergrondCheck == 2) {
-        //    magBewegen = 2;
-        //}
+        if (x <= -500 && achtergrondCheck == 2) {
+            magBewegen = 2;
+        }
         //frameCount is hoe snel de animatie gaat, hoe lager het getal, hoe sneller de code door de spritesheet gaat
         frameCount++;
         if (frameCount < 4) {
