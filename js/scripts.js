@@ -200,7 +200,7 @@ function step() {
             magBewegen = 2;
             menuschool.style.display = "block"
         }
-        if (x <= -780 && achtergrondCheck == 2) {
+        if (x <= -720 && achtergrondCheck == 2) {
             magBewegen = 2;
             character.style.display = "none";
         }
