@@ -90,7 +90,7 @@ if (quitmenu == 0) {
 function scene() {
     background.style.display = "none";
     menuschool.style.display = "none";
-    loading.style.display = "block";
+    loading.style.display = "flex";
     achtergrondCheck = 2;
     x = 0;
     magBewegen = 1;
@@ -195,13 +195,14 @@ function step() {
             backgroundImg.style.left = x + "px";
             console.log(x)
         }
-        // als de x van de afbeelding op -1500 komt, dan gaat hij uit de if statement doordat hij magBewegen op 2 zet
-        if (x <= -450 && achtergrondCheck == 1) {
+        // als de x van de afbeelding op -1500 komt, dan gaat hij uit de if statement doordat hij magBewegen op 2 zet -450px
+        if (x <= -100 && achtergrondCheck == 1) {
             magBewegen = 2;
             menuschool.style.display = "block"
         }
-        if (x <= -750 && achtergrondCheck == 2) {
+        if (x <= -780 && achtergrondCheck == 2) {
             magBewegen = 2;
+            character.style.display = "none";
         }
         //frameCount is hoe snel de animatie gaat, hoe lager het getal, hoe sneller de code door de spritesheet gaat
         frameCount++;
