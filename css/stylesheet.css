@@ -67,7 +67,7 @@
                 user-select: none;
                 height: 100%;
                 position: fixed;
-                top: 0px;
+                top: 30px;
                 z-index: -10;
                 display: block;
             }
