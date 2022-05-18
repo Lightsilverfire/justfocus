@@ -15,9 +15,19 @@
 </head>
 
 <body>
-    <div><canvas id="canvas" width="256" height="256"></canvas> </div>
+    <div id="goingsit"><img id="goingsitimg" src="./images/going-sit.gif" alt=""></div>
+    <div id="teacher"><img id="teacherimg" src="" alt=""></div>
+    <div>
+        <canvas id="canvas" width="256" height="256"></canvas> </div>
     <div id="loadingscreen">
-        <div>Loading...</div>
+        <div id="loading">Loading...</div>
+        <div id="fact">Fact<br><br>Did you know that ADHD is short for Attention-Deficit / Hyperactivity Disorder?</div>
+
+    </div>
+
+    <div id="endScreen">
+        <div id="fact">Thanks for playing! <br><br>If you have feedback, please let us know</div>
+
     </div>
     <div id="background"><img id="backgroundImg" src=""></div>
     <div id="mainmenu">
@@ -39,6 +49,31 @@
         <div id="logodiv"><img id="logo" src="./images/focuslogo.png" alt="logo"></div>
 
         <div id="hamburgermenu"><img id="menu" src="images/menu.png"></div>
+
+        <!--Microgame Focus-->
+        <div class="progress-bar" style="--width: 100" data-label="FOCUS"></div>
+        <div id="wrapper">
+            <div id="crackedtext">
+                <span>FOCUS</span>
+                <span>FOCUS</span>
+                <span>FOCUS</span>
+                <span>FOCUS</span>
+            </div>
+        </div>
+        <div id="startmenu">
+            <div id="startscreen">
+                <h2>KEEP YOUR FOCUS</h2><button id="startbutton" class="playagain">Start game</button><br>
+            </div>
+        </div>
+        <div id="textmenu">
+            <div id="tryagain">
+                <h2>YOU LOST YOUR FOCUS</h2>
+                <button id="endGameButton" class="continue">Continue</button></div>
+        </div>
+        <div id="tap">
+            <p>TAP</p>
+        </div>
+
 
         <div id="footerbar">
             <div id="textfooter"> Hold to walk</div>

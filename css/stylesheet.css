@@ -65,14 +65,41 @@
             
             #scene2 {
                 user-select: none;
-                height: 100%;
+                height: 116%;
                 position: fixed;
-                top: 30px;
+                top: 0px;
                 z-index: -10;
                 display: block;
             }
             
+            #goingsit {
+                display: none;
+                position: absolute;
+                top: 420px;
+                left: 80px;
+                user-select: none;
+            }
+            
+            #goingsitimg {
+                width: 80%;
+                user-select: none;
+            }
+            
+            #teacher {
+                position: fixed;
+                left: 200px;
+                top: 350px;
+                display: none;
+                user-select: none;
+            }
+            
+            #teacherimg {
+                width: 150%;
+                user-select: none;
+            }
+            
             #loadingscreen {
+                font-size: 20px;
                 position: absolute;
                 top: 0;
                 width: 100%;
@@ -85,6 +112,28 @@
                 z-index: 2;
                 justify-content: center;
                 align-items: center;
+            }
+            
+            #endScreen {
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(-45deg, #b80000, #e47404, #c42707, #e82214);
+                background-size: 400% 400%;
+                animation: gradient 6s ease infinite;
+                height: 100vh;
+                display: none;
+                z-index: 2;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            #loading {
+                color: white;
+                display: block;
+                position: absolute;
+                top: 10px;
             }
             
             @keyframes gradient {
@@ -252,6 +301,19 @@
                 display: none;
             }
             
+            #fact {
+                background-color: white;
+                color: black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 80%;
+                font-size: 25px;
+                height: 200px;
+                border-radius: 20px;
+                padding: 20px;
+            }
+            
             #menugotoschool {
                 width: 50%;
                 height: 10%;
@@ -357,4 +419,319 @@
                     z-index: 1;
                     margin: 100% 0 0 20%;
                 }
+            }
+            /*Microgame Focus CCS */
+            
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+            
+            body {
+                background-color: none;
+                position: absolute;
+                margin: 0px;
+                overflow: hidden;
+                top: 0px;
+                bottom: 0px;
+                width: 100%;
+            }
+            
+            #tap {
+                height: 100px;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                position: fixed;
+                bottom: 0%;
+                background-color: black;
+                color: white;
+                user-select: none;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                z-index: 120;
+            }
+            
+            p {
+                padding: 1%;
+                font-size: 60px;
+            }
+            
+            #focus {
+                color: black;
+                font-size: 100px;
+                text-align: center;
+                width: 100%;
+            }
+            
+            @media screen and (max-width: 1200px) {
+                body {
+                    color: white;
+                }
+                p {
+                    font-size: 30px;
+                    margin-top: 25%;
+                }
+                #tap {
+                    height: 20%;
+                }
+                #focus {
+                    font-size: 50px;
+                    margin-top: 30%;
+                }
+                .progress-bar {
+                    max-width: 100%;
+                    display: none;
+                }
+            }
+            
+            .progress-bar {
+                position: relative;
+                width: 100%;
+                height: 3em;
+                background-color: #111;
+                border-radius: 1.5em;
+                color: white;
+                margin: 10px 0 10px 0px;
+            }
+            
+            .progress-bar::before {
+                content: attr(data-label);
+                display: flex;
+                align-items: center;
+                position: absolute;
+                left: .5em;
+                top: .5em;
+                bottom: .5em;
+                width: calc(var(--width, 0) * 1%);
+                min-width: 2rem;
+                max-width: calc(100% - 1em);
+                background-color: var(--backgroundcol, green);
+                border-radius: 1em;
+                padding: 1em;
+            }
+            
+            .square {
+                background-color: rgb(255, 0, 0);
+                width: 100px;
+                height: 100px;
+                text-align: center;
+            }
+            
+            p {
+                width: 100%;
+                height: 100px;
+            }
+            
+            .section {
+                width: 500px;
+                background-color: green;
+            }
+            
+            .gameover {
+                background-color: red;
+                text-align: center;
+                color: white;
+                text-transform: uppercase;
+            }
+            /*De opmaak/animatie van de tekst FOCUS*/
+            
+            #wrapper {
+                width: 100vw;
+                height: 200px;
+                display: flex;
+                z-index: 2;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            #crackedtext {
+                opacity: 0;
+            }
+            
+            .cracked {
+                font-family: Coolvetica, Arial;
+                font-size: 80px;
+                color: firebrick;
+                text-transform: uppercase;
+                position: relative;
+                animation: glow 2s linear infinite;
+                animation-direction: alternate;
+                position: absolute;
+                top: 130px;
+            }
+            
+            .cracked span:nth-child(1),
+            .cracked span:nth-child(3),
+            .cracked span:nth-child(4),
+            .cracked span:nth-child(5) {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            
+            .cracked span:nth-child(1) {
+                clip-path: polygon(-80% 0%, -15% 0%, 77% 100%, -10% 100%);
+                animation: crack1 18s linear forwards;
+            }
+            
+            .cracked span:nth-child(2) {
+                clip-path: polygon(-12% 0%, 40% 0%, 80% 100%, 82% 100%);
+            }
+            
+            .cracked span:nth-child(3) {
+                clip-path: polygon(42% 0%, 100% 0%, 99% 0%, 81% 100%);
+                animation: crack2 18s linear forwards;
+            }
+            
+            .cracked span:nth-child(4) {
+                clip-path: polygon(103% 0%, 150% 0%, 110% 100%, 80% 100%);
+                animation: crack3 18s linear forwards;
+            }
+            
+            @keyframes crack1 {
+                0% {
+                    transform: translate(0%, 0%);
+                }
+                100% {
+                    transform: translate(-12%, 1%) rotateZ(1deg);
+                }
+            }
+            
+            @keyframes crack2 {
+                0% {
+                    transform: translate(0%, 0%);
+                }
+                100% {
+                    transform: translate(12%, -1%) rotateZ(1deg);
+                }
+            }
+            
+            @keyframes crack3 {
+                0% {
+                    transform: translate(0%, 0%);
+                }
+                100% {
+                    transform: translate(15%, -7%) rotateZ(1deg);
+                }
+            }
+            
+            @keyframes glow {
+                0% {
+                    text-shadow: 0 0 30px #ffffff;
+                    filter: brightness(150%) blur(0.01rem);
+                }
+                100% {
+                    text-shadow: 0 0 30px red;
+                    filter: brightness(150%) blur(0.01rem);
+                }
+            }
+            /*textmenu*/
+            
+            #textmenu {
+                height: 50%;
+                width: 25%;
+                background-color: white;
+                z-index: 3;
+                position: absolute;
+                top: 0;
+                margin: 100px 0 0 35%;
+                text-align: center;
+                border: solid 2px black;
+                border-radius: 20px;
+                display: none;
+            }
+            
+            #tryagain {
+                margin: 20px 0 0 0;
+            }
+            
+            .playagain,
+            .continue {
+                height: 60px;
+                width: 80%;
+                margin: 10px;
+                background-color: black;
+                color: white;
+                border-radius: 5px;
+            }
+            
+            @keyframes popup {
+                0% {
+                    opacity: 0;
+                }
+                25% {
+                    opacity: 0.25;
+                }
+                50% {
+                    opacity: 0.50;
+                }
+                75% {
+                    opacity: 0.75;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+            /*startmenu*/
+            
+            #startmenu {
+                height: 30%;
+                width: 25%;
+                background-color: white;
+                z-index: 4;
+                position: absolute;
+                top: 0;
+                margin: 100px 0 0 35%;
+                text-align: center;
+                border: solid 2px black;
+                border-radius: 20px;
+                animation: popup 2s linear;
+                display: none;
+            }
+            
+            @media screen and (max-width: 1200px) {
+                h2 {
+                    font-size: 14px;
+                    color: black;
+                }
+            }
+            
+            @media screen and (max-width: 900px) {
+                #startmenu {
+                    width: 40%;
+                    height: 30%;
+                    margin-left: 30%;
+                    margin-right: 30%;
+                }
+                #textmenu {
+                    width: 40%;
+                    height: 30%;
+                    margin-left: 30%;
+                    margin-right: 30%;
+                }
+            }
+            
+            @media screen and (max-width: 700px) {
+                #startmenu {
+                    width: 40%;
+                    height: 20%;
+                    margin-left: 30%;
+                    margin-right: 30%;
+                }
+                #textmenu {
+                    width: 40%;
+                    height: 20%;
+                    margin-left: 30%;
+                    margin-right: 30%;
+                }
+            }
+            /*Hamburgermenu*/
+            
+            #menu {
+                position: relative;
+                width: 10%;
+                left: 0;
+                top: 0;
             }
