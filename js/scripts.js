@@ -15,7 +15,6 @@ if ("serviceWorker" in navigator) {
 //Functie activate gif
 document.getElementById("startButton").addEventListener("click", start);
 document.getElementById('startButton').addEventListener("click", showcharacter);
-document.getElementById("continueButton").addEventListener("click", start);
 document.getElementById("menu").addEventListener("click", hamburger);
 document.getElementById("popContinue").addEventListener("click", vervolg);
 document.getElementById("popupquit").addEventListener("click", quit);
@@ -118,7 +117,7 @@ function scene() {
             console.log('checke')
         background.style.display = "block";
         //interval van ongeveer 4000 nodig waarschijnlijk
-    }, 1000);
+    }, 4000);
 }
 
 function endGame() {
@@ -221,12 +220,12 @@ function step() {
             console.log(x)
         }
         // als de x van de afbeelding op -1500 komt, dan gaat hij uit de if statement doordat hij magBewegen op 2 zet -450px
-        if (x <= -450 && achtergrondCheck == 1) {
+        if (x <= -430 && achtergrondCheck == 1) {
             magBewegen = 2;
             menuschool.style.display = "block"
         }
-        //-840
-        if (x <= -840 && achtergrondCheck == 2) {
+        //-505
+        if (x <= -505 && achtergrondCheck == 2) {
             magBewegen = 2;
             character.style.display = "none";
             goingsit.style.display = "block";
@@ -292,7 +291,7 @@ function startbar() {
         const computedStyle = getComputedStyle(progressBar)
         const width = parseFloat(computedStyle.getPropertyValue('--width'))
             //de snelheid van de progressbar bepalen -.200
-        progressBar.style.setProperty('--width', width + -0.200)
+        progressBar.style.setProperty('--width', width + -0.20)
 
         //Wanneer progressbar leeg is naar you lose window
         if (progressBar.style.getPropertyValue('--width') < 0 && fgameOver == 1) {
