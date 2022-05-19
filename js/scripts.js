@@ -25,6 +25,10 @@ document.getElementById("Enterschool").addEventListener("click", scene);
 document.getElementById("footerbar").addEventListener("touchstart", function() { touch = true });
 document.getElementById("footerbar").addEventListener("touchend", function() { touch = false });
 document.getElementById("endGameButton").addEventListener("click", endGame);
+document.getElementById("back").addEventListener("click", backtostart);
+document.getElementById('startbutton').addEventListener('click', startbar)
+document.getElementById('tap').addEventListener('click', touchFocus);
+
 
 //scale is voor op welke scale de spritesheet getoont moet worden
 //width is de breedte van één afbeelding in de spritesheet
@@ -34,8 +38,8 @@ const width = 255;
 const height = 255;
 const scaledWidth = scale * width;
 const scaledHeight = scale * height;
-
-//we hebben 25 frames voor het lopen
+const progressBar = document.getElementsByClassName('progress-bar')[0]
+    //we hebben 25 frames voor het lopen
 const cycleLoop = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
 
 
@@ -61,6 +65,7 @@ let taptofocus = document.getElementById("tap");
 let textmenu = document.getElementById('textmenu');
 let breakingFocusText = document.getElementById('wrapper');
 let endScreen = document.getElementById('endScreen');
+let texttaphere = document.getElementById("taphere");
 //sprite op canvas zetten met goede frame
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
@@ -73,7 +78,8 @@ let achtergrondCheck = 1;
 let img = new Image();
 
 let fgameOver = 1;
-
+let tapcount = 0;
+let i = 1.5;
 
 //Startup values and classes
 let opacitymenu = 0;
@@ -272,8 +278,7 @@ function init() {
 
 //Microgame FOCUS
 
-document.getElementById('startbutton').addEventListener('click', startbar)
-const progressBar = document.getElementsByClassName('progress-bar')[0]
+
 
 //Cracked text start
 document.getElementById('startbutton').addEventListener('click', function() {
@@ -282,6 +287,7 @@ document.getElementById('startbutton').addEventListener('click', function() {
 });
 
 function startbar() {
+    texttaphere.style.display = "block";
     const progressBar = document.getElementsByClassName('progress-bar')[0]
     document.getElementById('startmenu').style.opacity = 0;
     var weg = document.getElementById("startmenu");
@@ -306,9 +312,7 @@ function startbar() {
     }, 5)
 }
 
-document.getElementById('tap').addEventListener('click', touchFocus);
-var tapcount = 0;
-let i = 1.5;
+
 //Hier moet de function touch tussen komen
 function touchFocus(data) {
     var pageY = data.pageY;
