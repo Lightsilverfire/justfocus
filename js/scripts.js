@@ -219,7 +219,7 @@ function step() {
             backgroundImg.style.left = x + "px";
             console.log(x)
         }
-        // als de x van de afbeelding op -1500 komt, dan gaat hij uit de if statement doordat hij magBewegen op 2 zet -450px
+        // als de x van de afbeelding op -1500 komt, dan gaat hij uit de if statement doordat hij magBewegen op 2 zet -430px
         if (x <= -430 && achtergrondCheck == 1) {
             magBewegen = 2;
             menuschool.style.display = "block"
