@@ -126,7 +126,7 @@ function scene() {
         background.style.display = "block";
         infotext.style.display = "block";
         //interval van ongeveer 4000 nodig waarschijnlijk
-    }, 4000);
+    }, 6000);
 }
 
 function endGame() {
