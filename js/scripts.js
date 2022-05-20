@@ -66,6 +66,8 @@ let textmenu = document.getElementById('textmenu');
 let breakingFocusText = document.getElementById('wrapper');
 let endScreen = document.getElementById('endScreen');
 let texttaphere = document.getElementById("taphere");
+let tutorial = document.getElementById("tutorial");
+let hands = document.getElementById("hands");
 //sprite op canvas zetten met goede frame
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
@@ -122,6 +124,7 @@ function scene() {
             clearInterval(laadscherm),
             console.log('checke')
         background.style.display = "block";
+        infotext.style.display = "block";
         //interval van ongeveer 4000 nodig waarschijnlijk
     }, 4000);
 }
@@ -228,7 +231,9 @@ function step() {
         // als de x van de afbeelding op -1500 komt, dan gaat hij uit de if statement doordat hij magBewegen op 2 zet -430px
         if (x <= -430 && achtergrondCheck == 1) {
             magBewegen = 2;
-            menuschool.style.display = "block"
+            menuschool.style.display = "block";
+            infotext.style.display = "none";
+            tutorial.style.display = "none";
         }
         //-505
         if (x <= -505 && achtergrondCheck == 2) {
@@ -242,6 +247,7 @@ function step() {
             progressBar.style.animation = "popup 2s linear";
             footer.style.display = "none";
             taptofocus.style.display = "flex";
+            hands.style.display = "none";
 
 
         }
@@ -287,6 +293,7 @@ document.getElementById('startbutton').addEventListener('click', function() {
 });
 
 function startbar() {
+    hands.style.display = "block";
     texttaphere.style.display = "block";
     const progressBar = document.getElementsByClassName('progress-bar')[0]
     document.getElementById('startmenu').style.opacity = 0;
