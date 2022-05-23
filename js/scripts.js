@@ -66,7 +66,6 @@ let textmenu = document.getElementById('textmenu');
 let breakingFocusText = document.getElementById('wrapper');
 let endScreen = document.getElementById('endScreen');
 let texttaphere = document.getElementById("taphere");
-let tutorial = document.getElementById("tutorial");
 let hands = document.getElementById("hands");
 //sprite op canvas zetten met goede frame
 let canvas = document.querySelector('canvas');
@@ -98,6 +97,7 @@ if (opacitymenu == 0) {
 if (popswitch == 0) {
     popmenu.classList.remove("popShow")
     popmenu.classList.add("popHide")
+
 }
 
 if (quitmenu == 0) {
@@ -170,7 +170,9 @@ function hamburger() {
     quitbutton.classList.add("quitHide")
     quitbutton.classList.remove("quitShow")
     invisiblelay.style.display = "block";
-    infotext.style.display = "none"
+    infotext.style.display = "none";
+    invisiblelay.style.display="block";
+
 }
 
 //continu knop in pauzescherm
@@ -233,7 +235,6 @@ function step() {
             magBewegen = 2;
             menuschool.style.display = "block";
             infotext.style.display = "none";
-            tutorial.style.display = "none";
         }
         //-505
         if (x <= -505 && achtergrondCheck == 2) {
@@ -321,7 +322,7 @@ function startbar() {
 
 
 //Hier moet de function touch tussen komen
-function touchFocus(data) {
+function touchFocus() {
     var pageY = data.pageY;
     //kijken of er in het juiste vak wordt gedrukt
 
@@ -329,7 +330,7 @@ function touchFocus(data) {
         //aantal klikken geregistreerd
         tapcount = tapcount + 1;
         console.log(tapcount);
-        addProgresstap(tapcount);
+        addProgresstap();
         const computedStyle = getComputedStyle(progressBar)
         const width = parseFloat(computedStyle.getPropertyValue('--width'));
         progressBar.style.setProperty('--width', width + i);
@@ -352,7 +353,7 @@ function gameover() {
     window.location.reload();*/
 }
 
-function addProgresstap(tapcount) {
+function addProgresstap() {
     //Deze functie haalt er in de tafel van 3 elke keer 0.05 van de i af!!
     if (tapcount % 3 == 0) {
         console.log("modulowerkt");
