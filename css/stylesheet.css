@@ -28,7 +28,7 @@ body {
     z-index: -10;
 }
 
-#grayedOut{
+#grayedOut {
     display: none;
     position: absolute;
     height: 100%;
@@ -146,7 +146,7 @@ body {
     z-index: 100;
 }
 
-#startButton{
+#startButton {
     position: relative;
     z-index: 100;
 }
@@ -366,8 +366,9 @@ canvas {
 
 #enterschool {
     width: 100%;
-    z-index:2;
+    z-index: 2;
 }
+
 
 /*Scaling webpage */
 
@@ -456,7 +457,9 @@ canvas {
     }
 }
 
+
 /*Microgame Focus CCS */
+
 *::before,
 *::after {
     box-sizing: border-box;
@@ -572,7 +575,9 @@ p {
     text-transform: uppercase;
 }
 
+
 /*De opmaak/animatie van de tekst FOCUS*/
+
 #wrapper {
     width: 100vw;
     height: 200px;
@@ -664,7 +669,9 @@ p {
     }
 }
 
+
 /*textmenu*/
+
 #textmenu {
     height: 50%;
     width: 25%;
@@ -711,7 +718,9 @@ p {
     }
 }
 
+
 /*startmenu*/
+
 #startmenu {
     height: 30%;
     width: 25%;
@@ -763,7 +772,9 @@ p {
     }
 }
 
+
 /*Hamburgermenu*/
+
 #menu {
     position: relative;
     width: 10%;
@@ -781,8 +792,6 @@ p {
 #taphere {
     display: none;
 }
-
-
 
 #feet {
     user-select: none;
@@ -813,4 +822,12 @@ p {
     padding: 25px;
     align-items: center;
     animation: feet 2s ease-in infinite;
+}
+
+#actionbartutorial {
+    position: absolute;
+    top: 59%;
+    margin: 15% 0 0 15%;
+    width: 55%;
+    opacity: 900%;
 }
