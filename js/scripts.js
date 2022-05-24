@@ -1,3 +1,4 @@
+//Service worker functies
 //See if the browser supports Service Workers, if so try to register one
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("service-worker.js").then(function(registering) {
@@ -12,40 +13,34 @@ if ("serviceWorker" in navigator) {
     console.log("Browser: I don't support Service Workers :(");
 }
 
-//Functie activate gif
+//hieronder staan alle click elementen
 document.getElementById("startButton").addEventListener("click", start);
-document.getElementById('startButton').addEventListener("click", showcharacter);
 document.getElementById("menu").addEventListener("click", hamburger);
-document.getElementById("popContinue").addEventListener("click", vervolg);
 document.getElementById("popupquit").addEventListener("click", quit);
+document.getElementById("popContinue").addEventListener("click", continueButton);
 document.getElementById("quityes").addEventListener("click", backtostart);
 document.getElementById("quitno").addEventListener("click", backtomenu);
-document.getElementById("Enterschool").addEventListener("click", scene);
-//touch event, touchstart is je vinger op het scherm is, touchend is als je vinger niet meer op het scherm is
-document.getElementById("footerbar").addEventListener("touchstart", function() { touch = true });
-document.getElementById("footerbar").addEventListener("touchend", function() { touch = false });
+document.getElementById("Enterschool").addEventListener("click", loadingScene);
 document.getElementById("endGameButton").addEventListener("click", endGame);
 document.getElementById("back").addEventListener("click", backtostart);
 document.getElementById('startbutton').addEventListener('click', startbar)
 document.getElementById('tap').addEventListener('click', touchFocus);
+document.getElementById("footerbar").addEventListener("touchstart", function() { touch = true }); 
+document.getElementById("footerbar").addEventListener("touchend", function() { touch = false });
 
-
-//scale is voor op welke scale de spritesheet getoont moet worden
-//width is de breedte van één afbeelding in de spritesheet
-//height is de hoogte van de spirtesheet
-const scale = 1;
-const width = 255;
-const height = 255;
-const scaledWidth = scale * width;
-const scaledHeight = scale * height;
-const progressBar = document.getElementsByClassName('progress-bar')[0]
-    //we hebben 25 frames voor het lopen
+//hieronder staan alle constantes
+const scale = 1; //dit is voor op welke scale de spritesheet getoont moet worden
+const width = 255; //widht is de breedte van één afbeelding in de spritesheet
+const height = 255; //height is de hoogte van één afbeelding in de spritesheet
+const scaledWidth = scale * width; //dit is de gescalde breedte van de afbeelding
+const scaledHeight = scale * height; //dit is de gescalde hoogte van de afbeelding
 const cycleLoop = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
+const progressBar = document.getElementsByClassName('progress-bar')[0];
 
-
+//hieronder staan alle let variabelen die we gebruiken
 let menuswitch = document.getElementById("hamburgermenu");
 let popmenu = document.getElementById("popupmenu");
-let quitbutton = document.getElementById("quityesno");
+let quitbutton = document.getElementById("quityesno"); 
 let quitbutton2 = document.getElementById("popupquit");
 let character = document.getElementById("canvas");
 let invisiblelay = document.getElementById("invisiblelayer");
@@ -67,72 +62,60 @@ let breakingFocusText = document.getElementById('wrapper');
 let endScreen = document.getElementById('endScreen');
 let texttaphere = document.getElementById("taphere");
 let hands = document.getElementById("hands");
-//sprite op canvas zetten met goede frame
+let grayedOut = document.getElementById("grayedOut");
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
-let touch;
+
 let currentLoopIndex = 0;
 let frameCount = 0;
 let x = 0;
-let magBewegen = 1;
-let achtergrondCheck = 1;
+let tapcount = 0;
+let focus = 1.5;
+let touch; 
+let magBewegen = true; 
+let achtergrondCheck = true;
+let secondgray = false;
+let fgameOver = true;
 let img = new Image();
 
-let fgameOver = 1;
-let tapcount = 0;
-let i = 1.5;
+//hieronder de dingen die niet op het hoofdmenu te zien moeten zijn
+menuswitch.classList.add("hamburgerHide")
+menuswitch.classList.remove("hamburgerShow")
+popmenu.classList.remove("popShow")
+popmenu.classList.add("popHide")
+quitbutton.classList.remove("quitShow")
+quitbutton.classList.add("quitHide")
+img.src = 'images/lopen.png'; // sprite bepalen
+img.onload = function() {init()}; //sprite laden
 
-//Startup values and classes
-let opacitymenu = 0;
-let popswitch = 0;
-let quitmenu = 0;
-
-
-//hamburger menu show en hide
-if (opacitymenu == 0) {
-    menuswitch.classList.add("hamburgerHide")
-    menuswitch.classList.remove("hamburgerShow")
-}
-
-if (popswitch == 0) {
-    popmenu.classList.remove("popShow")
-    popmenu.classList.add("popHide")
-
-}
-
-if (quitmenu == 0) {
-    quitbutton.classList.remove("quitShow")
-    quitbutton.classList.add("quitHide")
-}
-//Laadscherm laten verdwijnen
-function scene() {
+//dit is de functie van het laadscherm
+function loadingScene() {
     background.style.display = "none";
     menuschool.style.display = "none";
     loading.style.display = "flex";
-    achtergrondCheck = 2;
+    backgroundImg.style.left = "0px";
     x = 0;
-    magBewegen = 1;
+    achtergrondCheck = false;
+    magBewegen = true;
     backgroundImg.src = "./images/classroom.png";
     backgroundImg.className = "scene2";
     document.getElementById("backgroundImg").setAttribute("id", "scene2");
-    backgroundImg.style.left = "0px";
 
-
-
+    //dit laat het laadscherm weer verdwijnen
     let laadscherm = setInterval(function() {
-        document.getElementById("loadingscreen").remove(),
-            clearInterval(laadscherm),
-            console.log('checke')
+        clearInterval(laadscherm);
+        document.getElementById("loadingscreen").remove();
         background.style.display = "block";
         infotext.style.display = "block";
-        //interval van ongeveer 4000 nodig waarschijnlijk
+        grayedOut.style.display ="none";
+        secondgray = false;
+        //interval van ongeveer 6000 nodig
     }, 6000);
 }
 
+//deze functie laat het eindscherm zien van de app
 function endGame() {
-    console.log("blejendgamewerkt")
     background.style.display = "none";
-    loading.style.display = "flex";
     goingsit.style.display = "none";
     teacher.style.display = "none";
     startfocus.style.display = "none";
@@ -141,9 +124,10 @@ function endGame() {
     textmenu.style.display = "none";
     breakingFocusText.style.display = "none";
     endScreen.style.display = "flex";
+    loading.style.display = "flex";
 }
 
-//startknop
+//startknop op het hoofdmenu
 function start() {
     menuswitch.classList.remove("hamburgerHide")
     menuswitch.classList.add("hamburgerShow")
@@ -153,15 +137,20 @@ function start() {
     mainmenu.style.background = "none"
     logo.style.display = "none"
     backgroundImg.src = "./images/backgroundwalk.png";
-
-}
-
-// laat karakter zien na drukken startknop
-function showcharacter() {
     canvas.style.display = "block"
 }
 
-//hamburger menu openen en sluiten
+//dit zorgt ervoor dat je popup menu weer weg gaat als je op continue drukt
+function continueButton() {
+    popmenu.classList.add("popHide")
+    popmenu.classList.remove("popShow")
+    menuswitch.classList.add("hamburgerShow")
+    menuswitch.classList.remove("hamburgerHide")
+    invisiblelay.style.display="none";
+    if (!secondgray){grayedOut.style.display ="none";}
+}
+
+//hamburger menu openen
 function hamburger() {
     popmenu.classList.add("popShow")
     popmenu.classList.remove("popHide")
@@ -169,50 +158,32 @@ function hamburger() {
     menuswitch.classList.remove("hamburgerShow")
     quitbutton.classList.add("quitHide")
     quitbutton.classList.remove("quitShow")
-    invisiblelay.style.display = "block";
-    infotext.style.display = "none";
     invisiblelay.style.display="block";
-
+    grayedOut.style.display ="block";
 }
 
-//continu knop in pauzescherm
-function vervolg() {
-    popmenu.classList.remove("popShow")
-    popmenu.classList.add("popHide")
-    menuswitch.classList.remove("hamburgerHide")
-    menuswitch.classList.add("hamburgerShow")
-    invisiblelay.style.display = "none";
-    infotext.style.display = "block"
-
-}
-
-//afsluit knop in pauzescherm
+//afsluit knop in pauzescherm laat de yes no knoppen zien, zodat je de app niet per ongelijk afsluit
 function quit() {
     quitbutton.classList.remove("quitHide")
     quitbutton.classList.add("quitShow")
     mainmenu.style.background = "none"
 }
 
-//quitmenu yes knop
+//quitmenu yes knop zorgt ervoor dat je opnieuw naar de pagina gaat
 function backtostart() {
-    window.location.href = 'https://justfocus.netlify.app/';
+    location.reload();
     canvas.style.display = "none"
     invisiblelay.style.display = "none";
 }
 
-// quitmenu no knop
+// quitmenu no knop zorgt ervoor dat de yes no weg gaat
 function backtomenu() {
     quitbutton.classList.remove("quitShow")
     quitbutton.classList.add("quitHide")
 }
 
-//hieronder zit de scripts voor het geanimeerd lopen met de sprite
-//sprite bepalen en laden
-img.src = 'images/lopen.png';
-img.onload = function() {
-    init();
-};
-
+//hieronder staan de functies voor het animeren van de sprite
+//zorgt ervoor dat de frame op de goede plek komt
 function drawFrame(frameX, frameY, canvasX, canvasY) {
     ctx.drawImage(img,
         frameX * width, frameY * height, width, height,
@@ -221,85 +192,83 @@ function drawFrame(frameX, frameY, canvasX, canvasY) {
 
 //sprite laten lopen als het scherm aangeraakt wordt
 function step() {
-
-    if (touch && magBewegen == 1) {
+    if (touch && magBewegen) {
         // Laat de afbeelding verschuiven op de achtergrond
-        if (magBewegen == 1) {
+        if (magBewegen) {
             x--;
             //px is een string die voor de css duidelijk maakt dat het om pixels gaat
             backgroundImg.style.left = x + "px";
             console.log(x)
         }
-        // als de x van de afbeelding op -1500 komt, dan gaat hij uit de if statement doordat hij magBewegen op 2 zet -430px
-        if (x <= -430 && achtergrondCheck == 1) {
-            magBewegen = 2;
+        // als de x van de afbeelding op -430 komt, dan gaat hij uit de if statement doordat hij magBewegen op 2 zet
+        if (x <= -430 && achtergrondCheck) { //-430 is de goede waarde
+            magBewegen = false;
             menuschool.style.display = "block";
-            infotext.style.display = "none";
+            grayedOut.style.display = "block";
+            secondgray = true;
         }
-        //-505
-        if (x <= -505 && achtergrondCheck == 2) {
-            magBewegen = 2;
+        if (x <= -505 && !achtergrondCheck) { //-505 is de goede waarde
+            magBewegen = false;
             character.style.display = "none";
             goingsit.style.display = "block";
             teacher.style.display = "block";
             teacherimage.src = "./images/DocentV3.gif";
             startfocus.style.display = "block";
-            progressBar.style.display = "block";
-            progressBar.style.animation = "popup 2s linear";
             footer.style.display = "none";
             taptofocus.style.display = "flex";
             hands.style.display = "none";
-
-
+            texttaphere.style.display = "block";
+            hands.style.display = "block";
+            grayedOut.style.display ="block";
+            secondgray = true;
+            progressBar.style.display = "flex";
         }
 
-        //frameCount is hoe snel de animatie gaat, hoe lager het getal, hoe sneller de code door de spritesheet gaat
+        //frameCount is hoe snel de animatie gaat, hoe lager het getal, hoe sneller de de sprite zal lopen
         frameCount++;
         if (frameCount < 4) {
             window.requestAnimationFrame(step);
             return;
         }
+
         frameCount = 0;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawFrame(cycleLoop[currentLoopIndex], 0, 0, 0, 0);
         currentLoopIndex++;
+
         if (currentLoopIndex >= cycleLoop.length) {
             currentLoopIndex = 0;
         }
     }
+
     //als er niet meer op het scherm gedrukt wordt, dan maakt hij het scherm leeg en zet de eerste frame op het canvas
     else {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawFrame(cycleLoop[0], 0, 0, 0);
         currentLoopIndex = 0;
     }
-    window.requestAnimationFrame(step);
 
+    window.requestAnimationFrame(step);
 }
 
 function init() {
     window.requestAnimationFrame(step);
 }
 
-
-
 //Microgame FOCUS
-
-
-
 //Cracked text start
 document.getElementById('startbutton').addEventListener('click', function() {
     document.getElementById('crackedtext').classList.add('cracked');
     document.getElementById('crackedtext').style.opacity = 1;
 });
 
+//zorgt ervoor dat als je op start microgame drukt dat de progress bar leeg loopt
 function startbar() {
-    hands.style.display = "block";
-    texttaphere.style.display = "block";
-    const progressBar = document.getElementsByClassName('progress-bar')[0]
-    document.getElementById('startmenu').style.opacity = 0;
-    var weg = document.getElementById("startmenu");
-    weg.remove();
+    const progressBar = document.getElementsByClassName('progress-bar')[0];
+    document.getElementById('startmenu').style.display = "none";
+    document.getElementById("startmenu").remove();
+    grayedOut.style.display ="none";
+    secondgray = false;
 
     setInterval(() => {
         const computedStyle = getComputedStyle(progressBar)
@@ -308,10 +277,11 @@ function startbar() {
         progressBar.style.setProperty('--width', width + -0.20)
 
         //Wanneer progressbar leeg is naar you lose window
-        if (progressBar.style.getPropertyValue('--width') < 0 && fgameOver == 1) {
+        if (progressBar.style.getPropertyValue('--width') < 0 && fgameOver) {
             gameover();
 
         }
+
         //background color van progress rood maken wanneer bijna af
         if (progressBar.style.getPropertyValue('--width') < 40) {
             document.documentElement.style
@@ -321,11 +291,10 @@ function startbar() {
 }
 
 
-//Hier moet de function touch tussen komen
-function touchFocus() {
+//dit zorgt ervoor dat er meer wordt toegevoegd aan de progres balk als je op de knop drukt
+function touchFocus(data) {
     var pageY = data.pageY;
     //kijken of er in het juiste vak wordt gedrukt
-
     if (pageY > 100) {
         //aantal klikken geregistreerd
         tapcount = tapcount + 1;
@@ -333,34 +302,31 @@ function touchFocus() {
         addProgresstap();
         const computedStyle = getComputedStyle(progressBar)
         const width = parseFloat(computedStyle.getPropertyValue('--width'));
-        progressBar.style.setProperty('--width', width + i);
+        progressBar.style.setProperty('--width', width + focus);
     }
 }
 
-
-
-
+//dit zorgt ervoor dat als de progres balk leeg is dat je een game over screen krijgt
 function gameover() {
-    //wanneer iemand het niet meer bij kan houden verliest diegene en wordt naar het game over screen geleidt
     document.getElementById('textmenu').style.display = "block";
-    document.getElementById('textmenu').style.animation = "popup 2s linear";
     teacher.style.display = "block";
+    grayedOut.style.display = "block";
     teacherimage.src = "./images/DocentV3Pointing.gif";
     console.log('game over')
     tapcount = 0;
-    fgameOver = 2;
-    /*alert("YOU JUST LOST YOUR FOCUS");
-    window.location.reload();*/
+    fgameOver = false;
+    secondgray = true;
 }
 
+//dit zorgt ervoor dat je steeds minder toe voegd aan de progres balk
 function addProgresstap() {
-    //Deze functie haalt er in de tafel van 3 elke keer 0.05 van de i af!!
+    //Deze functie haalt er in de tafel van 3 elke keer 0.05 van de focus af
     if (tapcount % 3 == 0) {
         console.log("modulowerkt");
-        i = i - 0.05;
-        if (i <= 0) {
-            i = 0;
+        focus = focus - 0.05;
+        if (focus <= 0) {
+            focus = 0;
         }
-        console.log(i);
+        console.log(focus);
     }
 }
