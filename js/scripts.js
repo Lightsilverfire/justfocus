@@ -25,7 +25,7 @@ document.getElementById("endGameButton").addEventListener("click", endGame);
 document.getElementById("back").addEventListener("click", backtostart);
 document.getElementById('startbutton').addEventListener('click', startbar)
 document.getElementById('tap').addEventListener('click', touchFocus);
-document.getElementById("footerbar").addEventListener("touchstart", function() { touch = true }); 
+document.getElementById("footerbar").addEventListener("touchstart", function() { touch = true });
 document.getElementById("footerbar").addEventListener("touchend", function() { touch = false });
 
 //hieronder staan alle constantes
@@ -40,7 +40,7 @@ const progressBar = document.getElementsByClassName('progress-bar')[0];
 //hieronder staan alle let variabelen die we gebruiken
 let menuswitch = document.getElementById("hamburgermenu");
 let popmenu = document.getElementById("popupmenu");
-let quitbutton = document.getElementById("quityesno"); 
+let quitbutton = document.getElementById("quityesno");
 let quitbutton2 = document.getElementById("popupquit");
 let character = document.getElementById("canvas");
 let invisiblelay = document.getElementById("invisiblelayer");
@@ -65,14 +65,15 @@ let hands = document.getElementById("hands");
 let grayedOut = document.getElementById("grayedOut");
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
+let textlogo = document.getElementById("logodiv2");
 
 let currentLoopIndex = 0;
 let frameCount = 0;
 let x = 0;
 let tapcount = 0;
 let focus = 1.5;
-let touch; 
-let magBewegen = true; 
+let touch;
+let magBewegen = true;
 let achtergrondCheck = true;
 let secondgray = false;
 let fgameOver = true;
@@ -86,7 +87,7 @@ popmenu.classList.add("popHide")
 quitbutton.classList.remove("quitShow")
 quitbutton.classList.add("quitHide")
 img.src = 'images/lopen.png'; // sprite bepalen
-img.onload = function() {init()}; //sprite laden
+img.onload = function() { init() }; //sprite laden
 
 //dit is de functie van het laadscherm
 function loadingScene() {
@@ -107,7 +108,7 @@ function loadingScene() {
         document.getElementById("loadingscreen").remove();
         background.style.display = "block";
         infotext.style.display = "block";
-        grayedOut.style.display ="none";
+        grayedOut.style.display = "none";
         secondgray = false;
         //interval van ongeveer 6000 nodig
     }, 6000);
@@ -137,7 +138,8 @@ function start() {
     mainmenu.style.background = "none"
     logo.style.display = "none"
     backgroundImg.src = "./images/backgroundwalk.png";
-    canvas.style.display = "block"
+    canvas.style.display = "block";
+    textlogo.style.display = "none";
 }
 
 
@@ -150,8 +152,8 @@ function hamburger() {
     menuswitch.classList.remove("hamburgerShow")
     quitbutton.classList.add("quitHide")
     quitbutton.classList.remove("quitShow")
-    invisiblelay.style.display="block";
-    grayedOut.style.display ="block";
+    invisiblelay.style.display = "block";
+    grayedOut.style.display = "block";
     actionbartutorial.style.display = "block";
 }
 
@@ -161,8 +163,8 @@ function continueButton() {
     popmenu.classList.remove("popShow")
     menuswitch.classList.add("hamburgerShow")
     menuswitch.classList.remove("hamburgerHide")
-    invisiblelay.style.display="none";
-    if (!secondgray){grayedOut.style.display ="none";}
+    invisiblelay.style.display = "none";
+    if (!secondgray) { grayedOut.style.display = "none"; }
     actionbartutorial.style.display = "none";
 }
 
@@ -223,7 +225,7 @@ function step() {
             hands.style.display = "none";
             texttaphere.style.display = "block";
             hands.style.display = "block";
-            grayedOut.style.display ="block";
+            grayedOut.style.display = "block";
             secondgray = true;
             progressBar.style.display = "flex";
             actionbartutorial.style.display = "block";
@@ -272,7 +274,7 @@ function startbar() {
     const progressBar = document.getElementsByClassName('progress-bar')[0];
     document.getElementById('startmenu').style.display = "none";
     document.getElementById("startmenu").remove();
-    grayedOut.style.display ="none";
+    grayedOut.style.display = "none";
     secondgray = false;
     actionbartutorial.style.display = "none";
 

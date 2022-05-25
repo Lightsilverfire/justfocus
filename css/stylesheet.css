@@ -1,3 +1,8 @@
+@font-face {
+    font-family: chalk;
+    src: url("/Fonts/chalk.ttf");
+}
+
 html,
 body,
 form {
@@ -43,11 +48,26 @@ body {
     width: 80%;
     margin: 20% 0 20% 0;
     text-align: center;
+    border: solid 0.1px black;
+    border-radius: 20px;
+}
+
+#logo2 {
+    width: 80%;
+    margin: 20% 0 20% 0;
+    text-align: center;
 }
 
 #logodiv {
     width: 100%;
     text-align: center;
+}
+
+#logodiv2 {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 200px;
 }
 
 #hideshit {
@@ -149,6 +169,10 @@ body {
 #startButton {
     position: relative;
     z-index: 100;
+    background-color: rgb(70, 0, 70);
+    border: solid 2px purple;
+    font-family: chalk;
+    font-size: 20px;
 }
 
 #back {
@@ -158,6 +182,10 @@ body {
     color: white;
     border-radius: 5px;
     margin: 20% 0 0 20%;
+    background-color: rgb(70, 0, 70);
+    border: solid 2px purple;
+    font-family: chalk;
+    font-size: 20px;
 }
 
 #loading {
@@ -165,6 +193,7 @@ body {
     display: block;
     position: absolute;
     top: 10px;
+    font-family: chalk;
 }
 
 @keyframes gradient {
@@ -200,7 +229,10 @@ canvas {
 .buttons {
     width: 200%;
     color: white;
-    background-color: black;
+    background-color: rgb(70, 0, 70);
+    border: solid 2px purple;
+    font-family: chalk;
+    font-size: 20px;
     border-radius: 5px;
     display: block;
 }
@@ -230,11 +262,13 @@ canvas {
     height: 40%;
     position: absolute;
     top: 0px;
-    background-color: white;
-    border: solid 4px black;
+    background-color: black;
+    border: solid 4px purple;
     text-align: center;
-    margin: 30px 30px 0 30px;
+    margin: 30px 30px 0 40px;
     z-index: 20;
+    font-family: chalk;
+    border-radius: 20px;
 }
 
 #invisiblelayer {
@@ -259,9 +293,13 @@ canvas {
 .popup {
     width: 60%;
     margin: 8px;
-    background-color: black;
+    background-color: rgb(70, 0, 70);
+    border: solid 2px purple;
     color: white;
     border-radius: 5px;
+    font-family: chalk;
+    letter-spacing: 2px;
+    font-size: 20px;
 }
 
 #Enterschool {
@@ -271,10 +309,17 @@ canvas {
     color: white;
     border-radius: 5px;
     z-index: 15;
+    background-color: rgb(70, 0, 70);
+    border: solid 2px purple;
+    font-family: chalk;
+    font-size: 20px;
 }
 
 .buttonmenupopup {
     margin-top: 20%;
+    font-family: chalk;
+    font-size: 25px;
+    color: black;
 }
 
 #footerbar {
@@ -300,21 +345,26 @@ canvas {
     width: 80%;
     height: 60px;
     text-align: center;
-    margin: 10%;
+    margin: 7.5%;
     border-radius: 5px;
     color: white;
     font-size: 12px;
     z-index: 10;
+    border: solid 2px purple;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .yesno {
     width: 30%;
     height: 20px;
-    background-color: white;
-    border: solid 2px white;
+    font-family: chalk;
+    color: white;
+    font-size: 15px;
     border-radius: 5px;
-    font-size: 7px;
     margin: 10px;
+    background-color: rgb(70, 0, 70);
+    border: solid 2px purple;
 }
 
 .quitHide {
@@ -335,6 +385,7 @@ canvas {
 }
 
 #fact {
+    font-family: chalk;
     background-color: white;
     color: black;
     display: flex;
@@ -352,8 +403,6 @@ canvas {
     height: 10%;
     position: absolute;
     top: 0px;
-    background-color: white;
-    border: solid 4px black;
     text-align: center;
     margin: 75% 10% 0 10%;
     z-index: 9;
@@ -412,7 +461,7 @@ canvas {
         width: 75%;
     }
     h2 {
-        font-size: 16px;
+        font-size: 26px;
     }
     .popup {
         font-size: 10px;
@@ -698,6 +747,10 @@ p {
     background-color: black;
     color: white;
     border-radius: 5px;
+    background-color: rgb(70, 0, 70);
+    border: solid 2px purple;
+    font-family: chalk;
+    font-size: 20px;
 }
 
 @keyframes popup {
@@ -737,8 +790,9 @@ p {
 
 @media screen and (max-width: 1200px) {
     h2 {
-        font-size: 14px;
-        color: black;
+        font-size: 36px;
+        color: white;
+        letter-spacing: 4px;
     }
 }
 
@@ -766,7 +820,7 @@ p {
     }
     #textmenu {
         width: 50%;
-        height: 25%;
+        height: 30%;
         margin-left: 25%;
         margin-right: 30%;
     }
@@ -831,4 +885,16 @@ p {
     width: 55%;
     z-index: 6;
     display: none;
+}
+
+h3 {
+    font-size: 20px;
+    color: black;
+}
+
+#endGameButton {
+    background-color: rgb(70, 0, 70);
+    border: solid 2px purple;
+    font-family: chalk;
+    font-size: 20px;
 }
