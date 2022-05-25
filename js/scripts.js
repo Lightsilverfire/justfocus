@@ -140,15 +140,7 @@ function start() {
     canvas.style.display = "block"
 }
 
-//dit zorgt ervoor dat je popup menu weer weg gaat als je op continue drukt
-function continueButton() {
-    popmenu.classList.add("popHide")
-    popmenu.classList.remove("popShow")
-    menuswitch.classList.add("hamburgerShow")
-    menuswitch.classList.remove("hamburgerHide")
-    invisiblelay.style.display="none";
-    if (!secondgray){grayedOut.style.display ="none";}
-}
+
 
 //hamburger menu openen
 function hamburger() {
@@ -160,6 +152,18 @@ function hamburger() {
     quitbutton.classList.remove("quitShow")
     invisiblelay.style.display="block";
     grayedOut.style.display ="block";
+    actionbartutorial.style.display = "block";
+}
+
+//dit zorgt ervoor dat je popup menu weer weg gaat als je op continue drukt
+function continueButton() {
+    popmenu.classList.add("popHide")
+    popmenu.classList.remove("popShow")
+    menuswitch.classList.add("hamburgerShow")
+    menuswitch.classList.remove("hamburgerHide")
+    invisiblelay.style.display="none";
+    if (!secondgray){grayedOut.style.display ="none";}
+    actionbartutorial.style.display = "none";
 }
 
 //afsluit knop in pauzescherm laat de yes no knoppen zien, zodat je de app niet per ongelijk afsluit
@@ -222,6 +226,7 @@ function step() {
             grayedOut.style.display ="block";
             secondgray = true;
             progressBar.style.display = "flex";
+            actionbartutorial.style.display = "block";
         }
 
         //frameCount is hoe snel de animatie gaat, hoe lager het getal, hoe sneller de de sprite zal lopen
@@ -269,6 +274,7 @@ function startbar() {
     document.getElementById("startmenu").remove();
     grayedOut.style.display ="none";
     secondgray = false;
+    actionbartutorial.style.display = "none";
 
     setInterval(() => {
         const computedStyle = getComputedStyle(progressBar)
