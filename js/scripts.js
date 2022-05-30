@@ -66,6 +66,7 @@ let grayedOut = document.getElementById("grayedOut");
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
 let textlogo = document.getElementById("logodiv2");
+let goingSitImage = document.getElementById("goingsitimg");
 
 let currentLoopIndex = 0;
 let frameCount = 0;
@@ -77,6 +78,8 @@ let magBewegen = true;
 let achtergrondCheck = true;
 let secondgray = false;
 let fgameOver = true;
+let frustrated = true;
+let sendOut = true;
 let img = new Image();
 
 //hieronder de dingen die niet op het hoofdmenu te zien moeten zijn
@@ -111,7 +114,7 @@ function loadingScene() {
         grayedOut.style.display = "none";
         secondgray = false;
         //interval van ongeveer 6000 nodig
-    }, 6000);
+    }, 1);
 }
 
 //deze functie laat het eindscherm zien van de app
@@ -207,13 +210,13 @@ function step() {
             console.log(x)
         }
         // als de x van de afbeelding op -430 komt, dan gaat hij uit de if statement doordat hij magBewegen op 2 zet
-        if (x <= -430 && achtergrondCheck) { //-430 is de goede waarde
+        if (x <= -1 && achtergrondCheck) { //-430 is de goede waarde
             magBewegen = false;
             menuschool.style.display = "block";
             grayedOut.style.display = "block";
             secondgray = true;
         }
-        if (x <= -505 && !achtergrondCheck) { //-505 is de goede waarde
+        if (x <= -1 && !achtergrondCheck) { //-505 is de goede waarde
             magBewegen = false;
             character.style.display = "none";
             goingsit.style.display = "block";
@@ -277,23 +280,30 @@ function startbar() {
     grayedOut.style.display = "none";
     secondgray = false;
     actionbartutorial.style.display = "none";
+    goingSitImage.src = "./images/writing.gif";
 
     setInterval(() => {
         const computedStyle = getComputedStyle(progressBar)
         const width = parseFloat(computedStyle.getPropertyValue('--width'))
             //de snelheid van de progressbar bepalen -.200
-        progressBar.style.setProperty('--width', width + -0.20)
+        progressBar.style.setProperty('--width', width + -0.02)
 
         //Wanneer progressbar leeg is naar you lose window
         if (progressBar.style.getPropertyValue('--width') < 0 && fgameOver) {
             gameover();
-
+            if(sendOut){
+                goingSitImage.src = "./images/going-stand.gif";
+                sendOut = false;
+            }
         }
 
         //background color van progress rood maken wanneer bijna af
         if (progressBar.style.getPropertyValue('--width') < 40) {
-            document.documentElement.style
-                .setProperty('--backgroundcol', 'red');
+            document.documentElement.style.setProperty('--backgroundcol', 'red');
+            if(frustrated){
+                goingSitImage.src = "./images/slamming.gif";
+                frustrated = false;
+            }
         }
     }, 5)
 }
