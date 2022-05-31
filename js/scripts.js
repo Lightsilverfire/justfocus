@@ -69,6 +69,7 @@ let textlogo = document.getElementById("logodiv2");
 let goingSitImage = document.getElementById("goingsitimg");
 let northenlight = document.getElementById("Northenlight");
 let divlight = document.getElementById("Northenlightdiv");
+let topfooter = document.getElementById("topfooter");
 
 let currentLoopIndex = 0;
 let frameCount = 0;
@@ -141,6 +142,7 @@ function start() {
     document.getElementById('buttonsdiv').style.display = "none"
     infotext.style.display = "block"
     backgroundImg.style.display = "block"
+    topfooter.style.display = "block"
     mainmenu.style.background = "none"
     logo.style.display = "none"
     backgroundImg.src = "./images/backgroundwalk.png";

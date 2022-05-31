@@ -327,16 +327,28 @@ canvas {
     bottom: 0;
     width: 100%;
     height: 125px;
-    background-color: black;
+    background-color: white;
     text-align: center;
+    border-top: black solid 4px;
     z-index: 1;
 }
 
 #textfooter {
     margin: 10%;
-    color: white;
+    color: black;
     text-align: center;
     font-size: 15px;
+    display: none;
+}
+
+#topfooter{
+    height: 200px;
+    z-index: 1;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    top: 0px;
+    border-bottom: black solid 4px;
     display: none;
 }
 
@@ -853,6 +865,7 @@ p {
     margin: 0% 0% 10% 3%;
     padding: 25px;
     align-items: center;
+    filter: grayscale(100%);
     animation: feet 2s ease-in infinite;
 }
 
@@ -875,6 +888,7 @@ p {
     margin: 33% 0% 10% 3%;
     padding: 25px;
     align-items: center;
+    filter: grayscale(100%);
     animation: feet 2s ease-in infinite;
 }
 
@@ -903,7 +917,7 @@ h3 {
     width: 100%;
     user-select: none;
     position: absolute;
-    top: 100px;
+    top: 30px;
 }
 
 #Northenlightdiv {
