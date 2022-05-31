@@ -68,6 +68,7 @@ let ctx = canvas.getContext('2d');
 let textlogo = document.getElementById("logodiv2");
 let goingSitImage = document.getElementById("goingsitimg");
 let northenlight = document.getElementById("Northenlight");
+let divlight = document.getElementById("Northenlightdiv");
 
 let currentLoopIndex = 0;
 let frameCount = 0;
@@ -102,7 +103,7 @@ function loadingScene() {
     x = 0;
     achtergrondCheck = false;
     magBewegen = true;
-    northenlight.style.animation = "changeLight 5s forwards"; 
+    northenlight.style.animation = "changeLight 10s forwards";
     backgroundImg.src = "./images/classroom.png";
     backgroundImg.className = "scene2";
     document.getElementById("backgroundImg").setAttribute("id", "scene2");
@@ -145,6 +146,7 @@ function start() {
     backgroundImg.src = "./images/backgroundwalk.png";
     canvas.style.display = "block";
     textlogo.style.display = "none";
+    divlight.style.display = "block";
 }
 
 
@@ -234,6 +236,7 @@ function step() {
             secondgray = true;
             progressBar.style.display = "flex";
             actionbartutorial.style.display = "block";
+            divlight.style.display = "none";
         }
 
         //frameCount is hoe snel de animatie gaat, hoe lager het getal, hoe sneller de de sprite zal lopen
@@ -293,7 +296,7 @@ function startbar() {
         //Wanneer progressbar leeg is naar you lose window
         if (progressBar.style.getPropertyValue('--width') < 0 && fgameOver) {
             gameover();
-            if(sendOut){
+            if (sendOut) {
                 goingSitImage.src = "./images/going-stand.gif";
                 sendOut = false;
             }
@@ -302,7 +305,7 @@ function startbar() {
         //background color van progress rood maken wanneer bijna af
         if (progressBar.style.getPropertyValue('--width') < 40) {
             document.documentElement.style.setProperty('--backgroundcol', 'red');
-            if(frustrated){
+            if (frustrated) {
                 goingSitImage.src = "./images/slamming.gif";
                 frustrated = false;
             }
