@@ -143,6 +143,7 @@ function start() {
     infotext.style.display = "block"
     backgroundImg.style.display = "block"
     topfooter.style.display = "block"
+    topfooter.style.animation = "changeLight 12s forwards";
     mainmenu.style.background = "none"
     logo.style.display = "none"
     backgroundImg.src = "./images/backgroundwalk.png";
@@ -216,13 +217,13 @@ function step() {
             console.log(x)
         }
         // als de x van de afbeelding op -430 komt, dan gaat hij uit de if statement doordat hij magBewegen op 2 zet
-        if (x <= -430 && achtergrondCheck) { //-430 is de goede waarde
+        if (x <= -1 && achtergrondCheck) { //-430 is de goede waarde
             magBewegen = false;
             menuschool.style.display = "block";
             grayedOut.style.display = "block";
             secondgray = true;
         }
-        if (x <= -505 && !achtergrondCheck) { //-505 is de goede waarde
+        if (x <= -450 && !achtergrondCheck) { //-505 is de goede waarde
             magBewegen = false;
             character.style.display = "none";
             goingsit.style.display = "block";
