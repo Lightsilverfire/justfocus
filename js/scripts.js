@@ -287,11 +287,12 @@ function startbar() {
         const width = parseFloat(computedStyle.getPropertyValue('--width'))
             //de snelheid van de progressbar bepalen -.200
         progressBar.style.setProperty('--width', width + -0.02)
-
-        //Wanneer progressbar leeg is naar you lose window
+            //backgroundImg.style.animation = "blurbackground 30s forwards";
+            //teacher.style.animation = "blurbackground 30s forwards";
+            //Wanneer progressbar leeg is naar you lose window
         if (progressBar.style.getPropertyValue('--width') < 0 && fgameOver) {
             gameover();
-            if(sendOut){
+            if (sendOut) {
                 goingSitImage.src = "./images/going-stand.gif";
                 sendOut = false;
             }
@@ -300,7 +301,7 @@ function startbar() {
         //background color van progress rood maken wanneer bijna af
         if (progressBar.style.getPropertyValue('--width') < 40) {
             document.documentElement.style.setProperty('--backgroundcol', 'red');
-            if(frustrated){
+            if (frustrated) {
                 goingSitImage.src = "./images/slamming.gif";
                 frustrated = false;
             }
