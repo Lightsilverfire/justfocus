@@ -341,7 +341,7 @@ canvas {
     display: none;
 }
 
-#topfooter{
+#topfooter {
     height: 200px;
     z-index: 1;
     width: 100%;
@@ -865,7 +865,7 @@ p {
     margin: 0% 0% 10% 3%;
     padding: 25px;
     align-items: center;
-    filter: grayscale(100%);
+    filter: invert(100%);
     animation: feet 2s ease-in infinite;
 }
 
@@ -888,7 +888,7 @@ p {
     margin: 33% 0% 10% 3%;
     padding: 25px;
     align-items: center;
-    filter: grayscale(100%);
+    filter: invert(100%);
     animation: feet 2s ease-in infinite;
 }
 
