@@ -1,0 +1,44 @@
+body {
+    overflow: hidden;
+}
+
+.blok {   
+    width: 100px;
+    height: 100px;
+    cursor: move; 
+    position: absolute;
+}
+
+#two {
+    top: 120px;
+    visibility: collapse;
+}
+
+#three {
+    top: 240px;
+    visibility: collapse;
+}
+
+#four {
+    top: 360px;
+    visibility: collapse;
+}
+
+#five {
+    top: 480px;
+    visibility: collapse;
+}
+
+.img {
+    pointer-events: none;
+    width: 100px;
+    height: 100px;
+}
+
+.img-head {
+    pointer-events: none;
+    width: 65%;
+    left: 18%;
+    top: 40%;
+    position: absolute;
+}
