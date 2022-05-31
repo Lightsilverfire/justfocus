@@ -898,3 +898,18 @@ h3 {
     font-family: chalk;
     font-size: 20px;
 }
+
+#Northenlight {
+    width: 100%;
+    user-select: none;
+    position: absolute;
+    top: 100px;
+}
+
+@keyframes changeLight {
+    0% {filter: grayscale(0%);}
+    25% {filter: grayscale(25%);}
+    50% {filter: grayscale(50%);}
+    75% {filter: grayscale(75%);}
+    100% {filter: grayscale(100%);}
+}

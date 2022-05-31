@@ -67,6 +67,7 @@ let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
 let textlogo = document.getElementById("logodiv2");
 let goingSitImage = document.getElementById("goingsitimg");
+let northenlight = document.getElementById("Northenlight");
 
 let currentLoopIndex = 0;
 let frameCount = 0;
@@ -101,6 +102,7 @@ function loadingScene() {
     x = 0;
     achtergrondCheck = false;
     magBewegen = true;
+    northenlight.style.animation = "changeLight 5s forwards"; 
     backgroundImg.src = "./images/classroom.png";
     backgroundImg.className = "scene2";
     document.getElementById("backgroundImg").setAttribute("id", "scene2");
@@ -210,13 +212,13 @@ function step() {
             console.log(x)
         }
         // als de x van de afbeelding op -430 komt, dan gaat hij uit de if statement doordat hij magBewegen op 2 zet
-        if (x <= -1 && achtergrondCheck) { //-430 is de goede waarde
+        if (x <= -430 && achtergrondCheck) { //-430 is de goede waarde
             magBewegen = false;
             menuschool.style.display = "block";
             grayedOut.style.display = "block";
             secondgray = true;
         }
-        if (x <= -1 && !achtergrondCheck) { //-505 is de goede waarde
+        if (x <= -505 && !achtergrondCheck) { //-505 is de goede waarde
             magBewegen = false;
             character.style.display = "none";
             goingsit.style.display = "block";
