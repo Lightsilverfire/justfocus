@@ -222,7 +222,7 @@ function step() {
             grayedOut.style.display = "block";
             secondgray = true;
         }
-        if (x <= -505 && !achtergrondCheck) { //-505 is de goede waarde
+        if (x <= -450 && !achtergrondCheck) { //-505 is de goede waarde
             magBewegen = false;
             character.style.display = "none";
             goingsit.style.display = "block";
@@ -290,10 +290,10 @@ function startbar() {
         const width = parseFloat(computedStyle.getPropertyValue('--width'))
             //de snelheid van de progressbar bepalen -.200
         progressBar.style.setProperty('--width', width + -0.2)
-        
-            //backgroundImg.style.animation = "blurbackground 30s forwards";
-            //teacher.style.animation = "blurbackground 30s forwards";
-            //Wanneer progressbar leeg is naar you lose window
+
+        //backgroundImg.style.animation = "blurbackground 30s forwards";
+        //teacher.style.animation = "blurbackground 30s forwards";
+        //Wanneer progressbar leeg is naar you lose window
         if (progressBar.style.getPropertyValue('--width') < 0 && fgameOver) {
             gameover();
             if (sendOut) {
