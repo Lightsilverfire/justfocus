@@ -58,7 +58,6 @@ let teacherimage = document.getElementById("teacherimg");
 let footer = document.getElementById("footerbar");
 let taptofocus = document.getElementById("tap");
 let textmenu = document.getElementById('textmenu');
-let breakingFocusText = document.getElementById('wrapper');
 let endScreen = document.getElementById('endScreen');
 let texttaphere = document.getElementById("taphere");
 let hands = document.getElementById("hands");
@@ -104,7 +103,9 @@ function loadingScene() {
     x = 0;
     achtergrondCheck = false;
     magBewegen = true;
-    northenlight.style.animation = "changeLight 10s forwards";
+
+    //topfooter.style.animation = "changeLight 10s forwards"
+
     backgroundImg.src = "./images/classroom.png";
     backgroundImg.className = "scene2";
     document.getElementById("backgroundImg").setAttribute("id", "scene2");
@@ -130,7 +131,6 @@ function endGame() {
     progressBar.style.display = "none";
     taptofocus.style.display = "none";
     textmenu.style.display = "none";
-    breakingFocusText.style.display = "none";
     endScreen.style.display = "flex";
     loading.style.display = "flex";
 }
@@ -143,7 +143,6 @@ function start() {
     infotext.style.display = "block"
     backgroundImg.style.display = "block"
     topfooter.style.display = "block"
-    topfooter.style.animation = "changeLight 12s forwards";
     mainmenu.style.background = "none"
     logo.style.display = "none"
     backgroundImg.src = "./images/backgroundwalk.png";
@@ -223,7 +222,7 @@ function step() {
             grayedOut.style.display = "block";
             secondgray = true;
         }
-        if (x <= -450 && !achtergrondCheck) { //-505 is de goede waarde
+        if (x <= -1 && !achtergrondCheck) { //-505 is de goede waarde
             magBewegen = false;
             character.style.display = "none";
             goingsit.style.display = "block";
@@ -275,10 +274,6 @@ function init() {
 
 //Microgame FOCUS
 //Cracked text start
-document.getElementById('startbutton').addEventListener('click', function() {
-    document.getElementById('crackedtext').classList.add('cracked');
-    document.getElementById('crackedtext').style.opacity = 1;
-});
 
 //zorgt ervoor dat als je op start microgame drukt dat de progress bar leeg loopt
 function startbar() {
@@ -294,7 +289,7 @@ function startbar() {
         const computedStyle = getComputedStyle(progressBar)
         const width = parseFloat(computedStyle.getPropertyValue('--width'))
             //de snelheid van de progressbar bepalen -.200
-        progressBar.style.setProperty('--width', width + -0.02)
+        progressBar.style.setProperty('--width', width + -0.32)
 
         //Wanneer progressbar leeg is naar you lose window
         if (progressBar.style.getPropertyValue('--width') < 0 && fgameOver) {

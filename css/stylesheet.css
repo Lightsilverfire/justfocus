@@ -344,7 +344,7 @@ canvas {
 }
 
 #topfooter {
-    background-image: var(--backgroundlight, url("/images/Light.gif"));
+    background-image: url("/images/Light.gif");
     background-size: 550px;
     background-position-x: -40px;
     background-position-y: -100px;
