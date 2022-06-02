@@ -289,9 +289,11 @@ function startbar() {
         const computedStyle = getComputedStyle(progressBar)
         const width = parseFloat(computedStyle.getPropertyValue('--width'))
             //de snelheid van de progressbar bepalen -.200
-        progressBar.style.setProperty('--width', width + -0.32)
 
-        //Wanneer progressbar leeg is naar you lose window
+        progressBar.style.setProperty('--width', width + -0.02)
+            //backgroundImg.style.animation = "blurbackground 30s forwards";
+            //teacher.style.animation = "blurbackground 30s forwards";
+            //Wanneer progressbar leeg is naar you lose window
         if (progressBar.style.getPropertyValue('--width') < 0 && fgameOver) {
             gameover();
             if (sendOut) {
