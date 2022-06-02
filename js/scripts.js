@@ -58,7 +58,6 @@ let teacherimage = document.getElementById("teacherimg");
 let footer = document.getElementById("footerbar");
 let taptofocus = document.getElementById("tap");
 let textmenu = document.getElementById('textmenu');
-let breakingFocusText = document.getElementById('wrapper');
 let endScreen = document.getElementById('endScreen');
 let texttaphere = document.getElementById("taphere");
 let hands = document.getElementById("hands");
@@ -67,6 +66,9 @@ let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
 let textlogo = document.getElementById("logodiv2");
 let goingSitImage = document.getElementById("goingsitimg");
+let northenlight = document.getElementById("Northenlight");
+let divlight = document.getElementById("Northenlightdiv");
+let topfooter = document.getElementById("topfooter");
 
 let currentLoopIndex = 0;
 let frameCount = 0;
@@ -101,6 +103,9 @@ function loadingScene() {
     x = 0;
     achtergrondCheck = false;
     magBewegen = true;
+
+    //topfooter.style.animation = "changeLight 10s forwards"
+
     backgroundImg.src = "./images/classroom.png";
     backgroundImg.className = "scene2";
     document.getElementById("backgroundImg").setAttribute("id", "scene2");
@@ -126,7 +131,6 @@ function endGame() {
     progressBar.style.display = "none";
     taptofocus.style.display = "none";
     textmenu.style.display = "none";
-    breakingFocusText.style.display = "none";
     endScreen.style.display = "flex";
     loading.style.display = "flex";
 }
@@ -138,11 +142,13 @@ function start() {
     document.getElementById('buttonsdiv').style.display = "none"
     infotext.style.display = "block"
     backgroundImg.style.display = "block"
+    topfooter.style.display = "block"
     mainmenu.style.background = "none"
     logo.style.display = "none"
     backgroundImg.src = "./images/backgroundwalk.png";
     canvas.style.display = "block";
     textlogo.style.display = "none";
+    divlight.style.display = "block";
 }
 
 
@@ -232,6 +238,7 @@ function step() {
             secondgray = true;
             progressBar.style.display = "flex";
             actionbartutorial.style.display = "block";
+            divlight.style.display = "none";
         }
 
         //frameCount is hoe snel de animatie gaat, hoe lager het getal, hoe sneller de de sprite zal lopen
@@ -267,10 +274,6 @@ function init() {
 
 //Microgame FOCUS
 //Cracked text start
-document.getElementById('startbutton').addEventListener('click', function() {
-    document.getElementById('crackedtext').classList.add('cracked');
-    document.getElementById('crackedtext').style.opacity = 1;
-});
 
 //zorgt ervoor dat als je op start microgame drukt dat de progress bar leeg loopt
 function startbar() {
@@ -286,6 +289,7 @@ function startbar() {
         const computedStyle = getComputedStyle(progressBar)
         const width = parseFloat(computedStyle.getPropertyValue('--width'))
             //de snelheid van de progressbar bepalen -.200
+
         progressBar.style.setProperty('--width', width + -0.02)
             //backgroundImg.style.animation = "blurbackground 30s forwards";
             //teacher.style.animation = "blurbackground 30s forwards";
