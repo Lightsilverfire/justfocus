@@ -1,3 +1,4 @@
+//dit is test push
 //Service worker functies
 //See if the browser supports Service Workers, if so try to register one
 if ("serviceWorker" in navigator) {
