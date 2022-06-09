@@ -1,11 +1,11 @@
 {
-    "theme_color": "#42709c",
-    "background_color": "#f6355d",
+    "theme_color": "#1c98f8",
+    "background_color": "#35f63d",
     "display": "fullscreen",
     "scope": ".",
-    "start_url": "./",
-    "name": "Just Focus",
-    "short_name": "Focus",
+    "start_url" : "./",
+    "name": "test",
+    "short_name": "test",
     "icons": [
         {
             "src": "/icon-192x192.png",
