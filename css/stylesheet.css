@@ -344,10 +344,10 @@ canvas {
 }
 
 #topfooter {
-    background-image: url("/images/Light.gif");
+    background-image: url("/images/Brev.gif");
     background-size: 550px;
-    background-position-x: -40px;
-    background-position-y: -100px;
+    background-position-y: -140px;
+    background-position-x: -60px;
     height: 25%;
     z-index: 1;
     width: 100%;
