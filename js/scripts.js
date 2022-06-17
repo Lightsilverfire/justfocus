@@ -69,12 +69,13 @@ let goingSitImage = document.getElementById("goingsitimg");
 let northenlight = document.getElementById("Northenlight");
 let divlight = document.getElementById("Northenlightdiv");
 let topfooter = document.getElementById("topfooter");
+let footerlayer = document.getElementById("invisiblelayer");
 
 let currentLoopIndex = 0;
 let frameCount = 0;
 let x = 0;
 let tapcount = 0;
-let focus = 1.5;
+let focus = 2.0;
 let touch;
 let magBewegen = true;
 let achtergrondCheck = true;
@@ -93,6 +94,9 @@ quitbutton.classList.remove("quitShow")
 quitbutton.classList.add("quitHide")
 img.src = 'images/lopen.png'; // sprite bepalen
 img.onload = function() { init() }; //sprite laden
+
+
+backgroundImg.style.userSelect = "none";
 
 //dit is de functie van het laadscherm
 function loadingScene() {
@@ -149,6 +153,7 @@ function start() {
     canvas.style.display = "block";
     textlogo.style.display = "none";
     divlight.style.display = "block";
+    footerlayer.style.display = "none";
 }
 
 
@@ -215,14 +220,14 @@ function step() {
             backgroundImg.style.left = x + "px";
             console.log(x)
         }
-        // als de x van de afbeelding op -430 komt, dan gaat hij uit de if statement doordat hij magBewegen op 2 zet
-        if (x <= -430 && achtergrondCheck) { //-430 is de goede waarde
+        // als de x van de afbeelding op -400 komt, dan gaat hij uit de if statement doordat hij magBewegen op 2 zet
+        if (x <= -400 && achtergrondCheck) { //-400 is de goede waarde
             magBewegen = false;
             menuschool.style.display = "block";
             grayedOut.style.display = "block";
             secondgray = true;
         }
-        if (x <= -450 && !achtergrondCheck) { //-505 is de goede waarde
+        if (x <= -420 && !achtergrondCheck) { //-420 is de goede waarde
             magBewegen = false;
             character.style.display = "none";
             goingsit.style.display = "block";
@@ -289,7 +294,7 @@ function startbar() {
         const computedStyle = getComputedStyle(progressBar)
         const width = parseFloat(computedStyle.getPropertyValue('--width'))
             //de snelheid van de progressbar bepalen -.200
-        progressBar.style.setProperty('--width', width + -0.2)
+        progressBar.style.setProperty('--width', width + -0.1)
 
         //backgroundImg.style.animation = "blurbackground 30s forwards";
         //teacher.style.animation = "blurbackground 30s forwards";
