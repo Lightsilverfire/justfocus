@@ -874,7 +874,7 @@ p {
     user-select: none;
     position: absolute;
     margin: 0% 0% 10% 3%;
-    padding: 25px;
+    padding: 50px;
     align-items: center;
     filter: invert(100%);
     animation: feet 2s ease-in infinite;
