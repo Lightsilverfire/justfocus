@@ -339,6 +339,8 @@ canvas {
 }
 
 #textfooter {
+    display: flex;
+    justify-content: center;
     margin: 10%;
     color: black;
     text-align: center;
@@ -871,10 +873,11 @@ p {
 }
 
 #feet {
+
     user-select: none;
     position: absolute;
     margin: 0% 0% 10% 3%;
-    padding: 50px;
+    padding: 25px;
     align-items: center;
     filter: invert(100%);
     animation: feet 2s ease-in infinite;
