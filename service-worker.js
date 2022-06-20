@@ -8,7 +8,8 @@ const appFiles=[
 	"css/stylesheet.css",
 	"icon-512x512.png", 
 	"./",
-  "index.html"
+  "index.html",
+  "./images/"
 ];
 
 
