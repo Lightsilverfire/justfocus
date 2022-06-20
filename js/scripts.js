@@ -119,7 +119,7 @@ function loadingScene() {
         clearInterval(laadscherm);
         document.getElementById("loadingscreen").remove();
         background.style.display = "block";
-        infotext.style.display = "block";
+        infotext.style.display = "flex";
         grayedOut.style.display = "none";
         secondgray = false;
         //interval van ongeveer 6000 nodig
@@ -144,7 +144,7 @@ function start() {
     menuswitch.classList.remove("hamburgerHide")
     menuswitch.classList.add("hamburgerShow")
     document.getElementById('buttonsdiv').style.display = "none"
-    infotext.style.display = "block"
+    infotext.style.display = "flex"
     backgroundImg.style.display = "block"
     topfooter.style.display = "block"
     mainmenu.style.background = "none"
