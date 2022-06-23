@@ -17,3 +17,7 @@ Ook is de app te downloaden op je computer en telefoon. LET OP!! De downloadbare
 Hoe speel ik de app?
 Wanneer je op de homescreen van de app bent druk je op de knop start game. Hierbij zie je dat er een nieuw scherm verschijnt. Hierbij lees je ook de instructie om je karakter te laten bewegen. Elke keer als er een actie nodig is zal er een knop verschijnen in beeld die je kan indrukken om een actie te voltooien. Bij het binnenkomen van de school maar ook bij het starten van de minigame worden er knoppen weergegeven. Je kunt het spel ook altijd afsluiten. Dit kun je doen door op het menu rechtsbovenin te drukken en daarna de optie quit te kiezen. !!LET OP!! Je game wordt niet opgeslagen. 
 
+Known bugs:
+1. Je kan de achtergrond selecteren als je gaat lopen. Tijdelijke fix: houd de knop ingedrukt, maar beweeg naar rechts of links, zodat je niet op dezelfde plek blijft staan in het begin.
+2. Bij de microgame verdrijwt de afbeelding van de hand.
+3. In het klaslokaal laad de docent niet altijd.
